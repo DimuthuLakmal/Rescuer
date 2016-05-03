@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Deployment AppPlatformVersion="8.0" xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment">
+    <DefaultLanguage code="en-US" xmlns="" />
+    <Languages xmlns="">
+        <Language code="en-US" />
+    </Languages>
+    <App Author="Find My Bus Author" BitsPerPixel="32" Description="Apache Cordova for Windows Phone" Genre="apps.normal" ProductID="{d1ec3ad0-afd6-11e5-8c79-297d43948bd2}" Publisher="Find My Bus Publisher" PublisherID="{db093ed5-53b1-45f7-af72-751e8f36ab80}" RuntimeType="Silverlight" Title="Find My Bus" Version="1.0.0" xmlns="">
+        <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
+        <Capabilities>
+            <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
+            <Capability Name="ID_CAP_NETWORKING" />
+            <Capability Name="ID_CAP_SPEECH_RECOGNITION" />
+        </Capabilities>
+        <Tasks>
+            <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
+        </Tasks>
+        <Tokens>
+            <PrimaryToken TaskName="_default" TokenID="Find My Bus">
+                <TemplateFlip>
+                    <SmallImageURI IsRelative="true" IsResource="false">Background.png</SmallImageURI>
+                    <Count>0</Count>
+                    <BackgroundImageURI IsRelative="true" IsResource="false">Background.png</BackgroundImageURI>
+                    <Title>BlankCordovaApp5</Title>
+                    <BackContent />
+                    <BackBackgroundImageURI />
+                    <BackTitle />
+                    <LargeBackgroundImageURI />
+                    <LargeBackContent />
+                    <LargeBackBackgroundImageURI />
+                    <DeviceLockImageURI />
+                    <HasLarge>false</HasLarge>
+                </TemplateFlip>
+            </PrimaryToken>
+        </Tokens>
+        <ScreenResolutions>
+            <ScreenResolution Name="ID_RESOLUTION_WVGA" />
+            <ScreenResolution Name="ID_RESOLUTION_WXGA" />
+            <ScreenResolution Name="ID_RESOLUTION_HD720P" />
+        </ScreenResolutions>
+    </App>
+</Deployment>

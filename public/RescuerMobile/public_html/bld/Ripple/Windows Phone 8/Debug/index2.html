@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Splash Screen</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/framework.css">
+        <link rel="stylesheet" type="text/css" href="css/washington.css">
+        <script src="cordova.js"></script>
+        <script src="scripts/platformOverrides.js"></script>
+        <script src="js/webfont.js"></script>
+        <script>
+            WebFont.load({
+                google: {
+                    families: ["Montserrat:400,700"]
+                }
+            });
+        </script>
+        <script type="text/javascript" src="js/modernizr.js"></script>
+        <link rel="shortcut icon" type="image/x-icon" href="images/logoStandford32.ico">
+        <link rel="apple-touch-icon" href="images/logoStandford32.ico">
+
+        <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <section class="w-section mobile-wrapper">
+
+            <div class="page-content" id="main-stack">
+                <div class="w-nav navbar"></div>
+                <div class="body padding">
+
+                    <a class="w-button action-button" href="search_by_route.html">Search Route</a><br><br>
+                    <a class="w-button action-button" href="search_by_destination.html">Search Start-Destination</a><br><br>
+                    <a class="w-button action-button" href="traffic.html">Traffic</a><br><br>
+                    <a class="w-button action-button" href="#">Log out</a><br><br>
+
+                </div>
+            </div>
+
+        </section>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <!--[if lte IE 9]><script src="js/placeholders.min.js"></script><![endif]-->
+    </body>
+</html>

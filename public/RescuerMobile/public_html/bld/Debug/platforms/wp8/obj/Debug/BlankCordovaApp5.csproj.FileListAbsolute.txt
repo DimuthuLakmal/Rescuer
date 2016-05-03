@@ -1,0 +1,14 @@
+c:\Users\Dimuthu\Documents\Visual Studio 2013\Projects\BlankCordovaApp5\BlankCordovaApp5\bld\Debug\platforms\wp8\Bin\Debug\ApplicationIcon.png
+c:\Users\Dimuthu\Documents\Visual Studio 2013\Projects\BlankCordovaApp5\BlankCordovaApp5\bld\Debug\platforms\wp8\Bin\Debug\Background.png
+c:\Users\Dimuthu\Documents\Visual Studio 2013\Projects\BlankCordovaApp5\BlankCordovaApp5\bld\Debug\platforms\wp8\Bin\Debug\io.cordova.BlankCordovaApp5.dll
+c:\Users\Dimuthu\Documents\Visual Studio 2013\Projects\BlankCordovaApp5\BlankCordovaApp5\bld\Debug\platforms\wp8\Bin\Debug\io.cordova.BlankCordovaApp5.pdb
+c:\Users\Dimuthu\Documents\Visual Studio 2013\Projects\BlankCordovaApp5\BlankCordovaApp5\bld\Debug\platforms\wp8\Bin\Debug\AppManifest.xaml
+c:\Users\Dimuthu\Documents\Visual Studio 2013\Projects\BlankCordovaApp5\BlankCordovaApp5\bld\Debug\platforms\wp8\Bin\Debug\Properties\WMAppManifest.xml
+c:\Users\Dimuthu\Documents\Visual Studio 2013\Projects\BlankCordovaApp5\BlankCordovaApp5\bld\Debug\platforms\wp8\Bin\Debug\CordovaAppProj_Debug_AnyCPU.xap
+c:\Users\Dimuthu\Documents\Visual Studio 2013\Projects\BlankCordovaApp5\BlankCordovaApp5\bld\Debug\platforms\wp8\obj\Debug\App.g.cs
+c:\Users\Dimuthu\Documents\Visual Studio 2013\Projects\BlankCordovaApp5\BlankCordovaApp5\bld\Debug\platforms\wp8\obj\Debug\cordovalib\CordovaView.g.cs
+c:\Users\Dimuthu\Documents\Visual Studio 2013\Projects\BlankCordovaApp5\BlankCordovaApp5\bld\Debug\platforms\wp8\obj\Debug\MainPage.g.cs
+c:\Users\Dimuthu\Documents\Visual Studio 2013\Projects\BlankCordovaApp5\BlankCordovaApp5\bld\Debug\platforms\wp8\obj\Debug\io.cordova.BlankCordovaApp5.g.resources
+c:\Users\Dimuthu\Documents\Visual Studio 2013\Projects\BlankCordovaApp5\BlankCordovaApp5\bld\Debug\platforms\wp8\obj\Debug\io.cordova.BlankCordovaApp5.dll
+c:\Users\Dimuthu\Documents\Visual Studio 2013\Projects\BlankCordovaApp5\BlankCordovaApp5\bld\Debug\platforms\wp8\obj\Debug\io.cordova.BlankCordovaApp5.pdb
+c:\Users\Dimuthu\Documents\Visual Studio 2013\Projects\BlankCordovaApp5\BlankCordovaApp5\bld\Debug\platforms\wp8\obj\Debug\XapCacheFile.xml

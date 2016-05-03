@@ -1,0 +1,14 @@
+{
+    "org.apache.cordova.speech.speechrecognition": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\Dimuthu\\documents\\visual studio 2013\\Projects\\BlankCordovaApp5\\BlankCordovaApp5\\plugins\\org.apache.cordova.speech.speechrecognition"
+        }
+    },
+    "cordova-plugin-tts": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\Dimuthu\\documents\\visual studio 2013\\Projects\\BlankCordovaApp5\\BlankCordovaApp5\\plugins\\cordova-plugin-tts"
+        }
+    }
+}

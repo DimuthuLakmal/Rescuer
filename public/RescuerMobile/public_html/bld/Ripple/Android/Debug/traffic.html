@@ -1,0 +1,282 @@
+﻿<html>
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body, #map_canvas {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script type="text/javascript">
+
+        function initialize() {
+
+            6.845783, 79.928774
+            var position = new google.maps.LatLng(6.847342, 79.926907);
+            var position1 = new google.maps.LatLng(6.848428, 79.928194);
+            var position2 = new google.maps.LatLng(6.849575, 79.929096);
+            var position3 = new google.maps.LatLng(6.845357, 79.929847);
+            var position4 = new google.maps.LatLng(6.848978, 79.924418);
+            var position5 = new google.maps.LatLng(6.847061, 79.926607);
+            var position6 = new google.maps.LatLng(6.845974, 79.926242);
+            var position7 = new google.maps.LatLng(6.843418, 79.923688);
+            var position8 = new google.maps.LatLng(6.850981, 79.921178);
+            var position9 = new google.maps.LatLng(6.845783, 79.928774);
+
+            var myOptions = {
+                zoom: 16,
+                center: { lat: 6.847295, lng: 79.926649 },
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(
+                    document.getElementById("map_canvas"),
+                    myOptions);
+
+            var marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: "Average speed : 6kmph\nState - Critical",
+                icon: "images/red.png"
+
+            });
+            var marker = new google.maps.Marker({
+                position: position1,
+                map: map,
+                title: "Average speed : 8kmph\nState - Critical",
+                icon: "images/red.png"
+            });
+            var marker = new google.maps.Marker({
+                position: position2,
+                map: map,
+                title: "Average speed : 12kmph\nState - Movable",
+                icon: "images/green.png"
+            });
+            var marker = new google.maps.Marker({
+                position: position3,
+                map: map,
+                title: "Average speed : 12kmph\nState - Movable",
+                icon: "images/green.png"
+            });
+            var marker = new google.maps.Marker({
+                position: position4,
+                map: map,
+                title: "Average speed : 20kmph\nState - Movable",
+                icon: "images/green.png"
+            });
+            var marker = new google.maps.Marker({
+                position: position5,
+                map: map,
+                title: "Average speed : 15kmph\nState - Movable",
+                icon: "images/green.png"
+            });
+            var marker = new google.maps.Marker({
+                position: position6,
+                map: map,
+                title: "Average speed : 8kmph\nState - Critical",
+                icon: "images/red.png"
+            });
+            var marker = new google.maps.Marker({
+                position: position7,
+                map: map,
+                title: "Average speed : 16kmph\nState - Movable",
+                icon: "images/green.png"
+            });
+            var marker = new google.maps.Marker({
+                position: position8,
+                map: map,
+                title: "Average speed : 10kmph\nState - Critical",
+                icon: "images/red.png"
+            });
+
+            var marker = new google.maps.Marker({
+                position: position9,
+                map: map,
+                title: "Average speed : 17kmph\nState - Movable",
+                icon: "images/green.png"
+            });
+
+            // Define the LatLng coordinates for the polygon's path.
+            var triangleCoords1 = [
+                { lat: 6.848578, lng: 79.925126 },
+                { lat: 6.845553, lng: 79.929546 },
+                { lat: 6.845553, lng: 79.929546 },
+                { lat: 6.848578, lng: 79.925126 }
+            ];
+
+            var triangleCoords2 = [
+                { lat: 6.845553, lng: 79.929546 },
+                { lat: 6.844786, lng: 79.930769 },
+                { lat: 6.844786, lng: 79.930769 },
+                { lat: 6.845553, lng: 79.929546 }
+            ];
+
+            var triangleCoords3 = [
+                { lat: 6.849920, lng: 79.923023 },
+                { lat: 6.848578, lng: 79.925126 },
+                { lat: 6.848578, lng: 79.925126 },
+                { lat: 6.849920, lng: 79.923023 }
+            ];
+
+
+            var triangleCoords4 = [
+                { lat: 6.846827, lng: 79.926478 },
+                { lat: 6.844291, lng: 79.925877 },
+                { lat: 6.844291, lng: 79.925877 },
+                { lat: 6.846827, lng: 79.926478 }
+            ];
+
+            var triangleCoords5 = [
+                { lat: 6.843844, lng: 79.924590 },
+                { lat: 6.842885, lng: 79.922165 },
+                { lat: 6.842885, lng: 79.922165 },
+                { lat: 6.843844, lng: 79.924590 }
+            ];
+
+            var triangleCoords6 = [
+                { lat: 6.851066, lng: 79.921221 },
+                { lat: 6.852110, lng: 79.919289 },
+                { lat: 6.852110, lng: 79.919289 },
+                { lat: 6.851066, lng: 79.921221 }
+            ];
+
+            var triangleCoords7 = [
+                { lat: 6.847444, lng: 79.926928 },
+                { lat: 6.849191, lng: 79.928924 },
+                { lat: 6.849191, lng: 79.928924 },
+                { lat: 6.847444, lng: 79.926928 }
+            ];
+
+
+            var triangleCoords8 = [
+                { lat: 6.849191, lng: 79.928924 },
+                { lat: 6.850363, lng: 79.929096 },
+                { lat: 6.850363, lng: 79.929096 },
+                { lat: 6.849191, lng: 79.928924 }
+            ];
+
+
+            var triangleCoords9 = [
+                { lat: 6.847934, lng: 79.925426 },
+                { lat: 6.845612, lng: 79.928924 },
+                { lat: 6.845612, lng: 79.928924 },
+                { lat: 6.847934, lng: 79.925426 }
+            ];
+
+
+            // Construct the polygon.
+            var bermudaTriangle1 = new google.maps.Polygon({
+                paths: triangleCoords1,
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.8,
+                strokeWeight: 4,
+                fillColor: '#FF0000',
+                fillOpacity: 0.2
+            });
+            bermudaTriangle1.setMap(map);
+
+            var bermudaTriangle2 = new google.maps.Polygon({
+                paths: triangleCoords2,
+                strokeColor: '#348017',
+                strokeOpacity: 0.8,
+                strokeWeight: 4,
+                fillColor: '#FF0000',
+                fillOpacity: 0.2
+            });
+            bermudaTriangle2.setMap(map);
+
+
+            var bermudaTriangle3 = new google.maps.Polygon({
+                paths: triangleCoords3,
+                strokeColor: '#348017',
+                strokeOpacity: 0.8,
+                strokeWeight: 4,
+                fillColor: '#FF0000',
+                fillOpacity: 0.2
+            });
+            bermudaTriangle3.setMap(map);
+
+
+            var bermudaTriangle4 = new google.maps.Polygon({
+                paths: triangleCoords4,
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.8,
+                strokeWeight: 4,
+                fillColor: '#FF0000',
+                fillOpacity: 0.2
+            });
+            bermudaTriangle4.setMap(map);
+
+
+
+            var bermudaTriangle5 = new google.maps.Polygon({
+                paths: triangleCoords5,
+                strokeColor: '#348017',
+                strokeOpacity: 0.8,
+                strokeWeight: 4,
+                fillColor: '#FF0000',
+                fillOpacity: 0.2
+            });
+            bermudaTriangle5.setMap(map);
+
+            var bermudaTriangle6 = new google.maps.Polygon({
+                paths: triangleCoords6,
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.8,
+                strokeWeight: 4,
+                fillColor: '#FF0000',
+                fillOpacity: 0.2
+            });
+            bermudaTriangle6.setMap(map);
+
+            var bermudaTriangle7 = new google.maps.Polygon({
+                paths: triangleCoords7,
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.8,
+                strokeWeight: 4,
+                fillColor: '#FF0000',
+                fillOpacity: 0.2
+            });
+            bermudaTriangle7.setMap(map);
+
+            var bermudaTriangle8 = new google.maps.Polygon({
+                paths: triangleCoords8,
+                strokeColor: '#348017',
+                strokeOpacity: 0.8,
+                strokeWeight: 4,
+                fillColor: '#FF0000',
+                fillOpacity: 0.2
+            });
+            bermudaTriangle8.setMap(map);
+
+            var bermudaTriangle9 = new google.maps.Polygon({
+                paths: triangleCoords9,
+                strokeColor: '#348017',
+                strokeOpacity: 0.8,
+                strokeWeight: 4,
+                fillColor: '#FF0000',
+                fillOpacity: 0.2
+            });
+            bermudaTriangle9.setMap(map);
+
+
+
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+
+        }
+
+    </script>
+</head>
+
+<body onload="initialize()">
+    <div id="map_canvas"></div>
+
+</body>
+
+</html>

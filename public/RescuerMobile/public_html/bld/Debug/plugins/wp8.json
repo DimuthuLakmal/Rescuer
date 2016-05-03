@@ -1,0 +1,39 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"TTS\"><param name=\"wp-package\" value=\"TTS\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "Properties/WMAppManifest.xml": {
+                "parents": {
+                    "/*/App/Capabilities": [
+                        {
+                            "xml": "<Capability Name=\"ID_CAP_SPEECH_RECOGNITION\" />",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-tts": {
+            "PACKAGE_NAME": "{d1ec3ad0-afd6-11e5-8c79-297d43948bd2}"
+        },
+        "org.apache.cordova.speech.speechrecognition": {
+            "PACKAGE_NAME": "{d1ec3ad0-afd6-11e5-8c79-297d43948bd2}"
+        }
+    },
+    "dependent_plugins": {}
+}

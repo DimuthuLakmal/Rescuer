@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Search for your bus</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/framework.css">
+        <link rel="stylesheet" type="text/css" href="css/washington.css">
+        <script src="cordova.js"></script>
+        <script src="scripts/platformOverrides.js"></script>
+        <script src="js/webfont.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+        <script>
+            WebFont.load({
+                google: {
+                    families: ["Montserrat:400,700"]
+                }
+            });
+        </script>
+        <script type="text/javascript" src="js/modernizr.js"></script>
+        <link rel="shortcut icon" type="image/x-icon" href="images/logoStandford32.ico">
+        <link rel="apple-touch-icon" href="images/logoStandford32.ico">
+
+        <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <section class="w-section mobile-wrapper">
+
+            <div class="page-content" id="main-stack">
+                <div class="w-nav navbar" data-collapse="all" data-animation="over-left" data-duration="400" data-contain="1" data-easing="ease-out-quint" data-no-scroll="1">
+                    <div class="w-container">
+                        <nav class="w-nav-menu nav-menu" role="navigation">
+                            <div class="nav-menu-header">
+                                <div class="logo">Find My Bus</div>
+                                <div class="slogan">You are never lost</div>
+                            </div>
+                            <a class="w-clearfix w-inline-block nav-menu-link" href="index2.html" data-load="1">
+                                <div class="icon-list-menu">
+                                    <div class="icon ion-ios-home-outline"></div>
+                                </div>
+                                <div class="nav-menu-titles">Home</div>
+                            </a>
+                            <a class="w-clearfix w-inline-block nav-menu-link" href="search_by_route.html" data-load="1">
+                                <div class="icon-list-menu">
+                                    <div class="icon ion-ios-search"></div>
+                                </div>
+                                <div class="nav-menu-titles">Search Route</div>
+                            </a>
+                            <a class="w-clearfix w-inline-block nav-menu-link" href="search_by_destination.html" data-load="1">
+                                <div class="icon-list-menu">
+                                    <div class="icon ion-ios-search"></div>
+                                </div>
+                                <div class="nav-menu-titles">Search Start-Destination</div>
+                            </a>
+                            <a class="w-clearfix w-inline-block nav-menu-link" href="traffic.html?reload=true">
+                                <div class="icon-list-menu">
+                                    <div class="icon ion-ios-navigate"></div>
+                                </div>
+                                <div class="nav-menu-titles">Traffic</div>
+                            </a>
+                            <a class="w-clearfix w-inline-block nav-menu-link" href="search_by_destination.html" data-load="1">
+                                <div class="icon-list-menu">
+                                    <div class="icon ion-ios-cloud-download-outline"></div>
+                                </div>
+                                <div class="nav-menu-titles">Log in</div>
+                            </a>
+                            <a class="w-clearfix w-inline-block nav-menu-link" href="signup.html" data-load="1">
+                                <div class="icon-list-menu">
+                                    <div class="icon ion-ios-cloud-upload-outline"></div>
+                                </div>
+                                <div class="nav-menu-titles">Log out</div>
+                            </a>
+                            <a class="w-clearfix w-inline-block nav-menu-link" href="signup.html" data-load="1">
+                                <div class="icon-list-menu">
+                                    <div class="icon ion-ios-list-outline"></div>
+                                </div>
+                                <div class="nav-menu-titles">Sign Up</div>
+                            </a>
+                            <div class="separator-bottom"></div>
+                            <div class="separator-bottom"></div>
+                            <div class="separator-bottom"></div>
+                        </nav>
+                        <div class="wrapper-mask" data-ix="menu-mask"></div>
+                        <div class="navbar-title">Search Results</div>
+                        <div class="w-nav-button navbar-button left" id="menu-button" data-ix="hide-navbar-icons">
+                            <div class="navbar-button-icon home-icon">
+                                <div class="bar-home-icon"></div>
+                                <div class="bar-home-icon"></div>
+                                <div class="bar-home-icon"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="body">
+                    <ul class="list list-messages" id="resultdiv">
+                    </ul>
+                    <div class="w-form padding">
+                        <br>
+                        <form id="submit-form" name="email-form" data-name="Email Form" data-redirect="settings.html" action="#">
+                            <input class="w-button action-button" type="submit" value="View On Map" id="viewmapbtn">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/framework.js"></script>
+        <script>
+            var clicked = false;
+            $(document).on('click', '.result', function () {
+                if (!clicked) {
+                    clicked = true;
+                    $(this).children().children('.stations').show('fast');
+                } else {
+                    clicked = false;
+                    $(this).children().children('.stations').hide('fast');
+                }
+            });
+
+            $('.result').click(function () {
+
+            })
+        </script>
+        <script>
+            var locations = [];
+            $(document).ready(function () {
+                var idx = document.URL.indexOf('?data=');
+                if (idx !== -1) {
+                    var data = document.URL.substring(idx + 6, document.URL.length);
+                    var busesRawData = data.split(',');
+                    $.each(busesRawData, function (index, value) {
+                        var busData = value.split(':');
+                        var longlat = busData[3].split('#');
+                        locations.push(busData[3] + ":" + busData[7] + ":" + busData[5]);
+
+                        $('#resultdiv').append("<li class=\"list-message\" data-ix=\"list-item\">" +
+                                "<a class=\"w-clearfix w-inline-block result\">" +
+                                "<div class=\"column-right\" style=\"padding-left: 20px\">" +
+                                "<div class=\"message-title\">" + busData[0] + " | " + busData[1] + "</div>" +
+                                "<div class=\"message-text\"><b>Now at : " + busData[4].replace(/@/g, ",") + "</b><br><b>Time to arrive : </b>" + busData[7] + "<br><b>Distance from start point: </b>" + busData[5] + "<br></div>" +
+                                "<div class=\"message-text stations\" style=\"display: none\">" + busData[2].replace(/%3E/g, ">").replace(/%20/g, " ") + "</div>" +
+                                "</div>" +
+                                "</a>" +
+                                "</li>");
+                    });
+                }
+            });
+        </script>
+        <script>
+            $('#viewmapbtn').click(function () {
+                window.location = "busmap.html?data=" + locations;
+            });
+        </script>
+        <!--[if lte IE 9]><script src="js/placeholders.min.js"></script><![endif]-->
+    </body>
+</html>
