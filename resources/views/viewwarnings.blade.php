@@ -65,9 +65,6 @@
                 });
             });
         </script>
-        <script>
-
-        </script>
 
         <div class="wrapper">
 

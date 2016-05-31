@@ -11,6 +11,9 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/washington.css">
         <link rel="stylesheet" type="text/css" href="css/modal.css">
+        <link rel="stylesheet" type="text/css" href="css/dropdown.css">
+        <link rel="stylesheet" type="text/css" href="css/noJS.css">
+        <script src="js/modernizr.custom.79639.js"></script>
         <script src="js/webfont.js"></script>
         <script>
             WebFont.load({
@@ -75,7 +78,7 @@
                             <div class="separator-bottom"></div>
                         </nav>
                         <div class="wrapper-mask" data-ix="menu-mask"></div>
-                        <div class="navbar-title">Warnings</div>
+                        <div class="navbar-title">Forum</div>
                         <div class="w-nav-button navbar-button left" id="menu-button" data-ix="hide-navbar-icons">
                             <div class="navbar-button-icon home-icon">
                                 <div class="bar-home-icon"></div>
@@ -91,7 +94,16 @@
                         <form>
                             <div class="form-group">
                                 <textarea class="form-control" rows="3" placeholder="Enter your question" id='questionarea'></textarea>
-                            </div>           
+                            </div>
+                            <div class="form-group">
+                                <div id="dd" class="wrapper-dropdown-5" tabindex="1"><span id="selected_type">Select Type</span>
+                                    <ul class="dropdown">
+                                        <li><a href="#" id="select_flood">Flood</a></li>
+                                        <li><a href="#" id="select_landslide">Land Slide</a></li>
+                                        <li><a href="#" id="select_wildfire">Wild Fire</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                             <button type="submit" class="btn btn-success btn-sm" style="float: right" id='postbtn'>&nbsp;&nbsp;&nbsp;Post&nbsp;&nbsp;&nbsp;</button>
                         </form>
                     </div>
@@ -104,7 +116,6 @@
             <div class="modal"></div>
         </section>
         <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script type="text/javascript" src="js/framework.js"></script>
         <script>
             $(document).ready(function () {
                 jQuery.ajax({
@@ -113,6 +124,7 @@
                     success: function (obj, textstatus) {
                         if (!('error' in obj)) {
                             $.each(obj, function (index, element) {
+                                alert(Object.keys(element));
                                 $('#askedQ').append('<div class=\"row\" style=\'background-color: #f6f6f6;\'>' +
                                         '<div class=\"container\"' +
                                         '<br>' +
@@ -125,18 +137,78 @@
                                         '<form>' +
                                         '<input type=\"hidden\" value=\"' + element.id + '\">' +
                                         '<input type=\"text\" class=\"form-control post_comment\" placeholder=\"Enter your comment\"><br>' +
-                                        '<button class=\"btn btn-sm btn-info\">Comment</button>' +
+                                        '<button class=\"btn btn-sm btn-info comment_button\">Comment</button>' +
                                         '</form>' +
                                         '</div>' +
                                         '<br>' +
                                         '</div>' +
                                         '</div><br>');
-                                alert(element[0].description);
                             });
                         }
                         else {
                             console.log(obj.error);
                         }
+                    }
+                });
+
+            });
+        </script>
+        <script>
+            $('#postbtn').click(function (e) {
+                e.preventDefault();
+                var description = $('#questionarea').val();
+                var type = $('#selected_type').text();
+
+                jQuery.ajax({
+                    type: "GET",
+                    dataType: 'jsonp',
+                    url: 'http://localhost/mobileforum/description/' + description + '/user_id/1/type/' + type,
+                    success: function (obj, textstatus) {
+                        if (obj == 'Success') {
+                            alert('Successfully submited');
+                            $('#askedQ').append('<div class=\"row\" style=\'background-color: #f6f6f6;\'>' +
+                                    '<div class=\"container\"' +
+                                    '<br>' +
+                                    '<div class=\"container\"><br>' +
+                                    '<p><b>' + description + '</b></p>' +
+                                    '</div>' +
+                                    '<table class=\'table table-striped\' id=\'' + 1 + '\'>' +
+                                    '</table>' +
+                                    '<div class="container">' +
+                                    '<form>' +
+                                    '<input type=\"hidden\" value=\"' + 1 + '\">' +
+                                    '<input type=\"text\" class=\"form-control post_comment\" placeholder=\"Enter your comment\"><br>' +
+                                    '<button class=\"btn btn-sm btn-info comment_button\">Comment</button>' +
+                                    '</form>' +
+                                    '</div>' +
+                                    '<br>' +
+                                    '</div>' +
+                                    '</div><br>');
+                        }
+                    }
+                });
+
+            });
+        </script>
+        <script>
+            $('#askedQ').on('click', '.comment_button', function (e) {
+                e.preventDefault();
+                var comment = $(this).prev().prev().val();
+                var id = $(this).prev().prev().prev().val();
+                jQuery.ajax({
+                    type: "GET",
+                    url: 'http://localhost/mobileforum/description/' + comment + '/user_id/1/q_id/' + id,
+                    dataType: 'jsonp',
+                    success: function (obj, textstatus) {
+                        $('#' + id).append('<tr>' +
+                                '<td>' +
+                                '<div class=\"row\">' +
+                                '<p><b>Dimuthu</b></p>' +
+                                '<p>' + comment + '</p>' +
+                                '</div>' +
+                                '</td>' +
+                                '</tr>'
+                                );
                     }
                 });
 
@@ -154,6 +226,49 @@
                 }
             });
         </script>
+
+        <script>
+            $('#select_flood').click(function () {
+                $('#selected_type').text("Flood");
+            });
+            $('#select_wildfire').click(function () {
+                $('#selected_type').text("Wild Fire");
+            });
+            $('#select_landslide').click(function () {
+                $('#selected_type').text("Land Slide");
+            });
+        </script>
+
+        <script type="text/javascript">
+
+            function DropDown(el) {
+                this.dd = el;
+                this.initEvents();
+            }
+            DropDown.prototype = {
+                initEvents: function () {
+                    var obj = this;
+
+                    obj.dd.on('click', function (event) {
+                        $(this).toggleClass('active');
+                        event.stopPropagation();
+                    });
+                }
+            }
+
+            $(function () {
+
+                var dd = new DropDown($('#dd'));
+
+                $(document).click(function () {
+                    // all dropdowns
+                    $('.wrapper-dropdown-5').removeClass('active');
+                });
+
+            });
+
+        </script>
+
         <!--[if lte IE 9]><script src="js/placeholders.min.js"></script><![endif]-->
     </body>
 </html>

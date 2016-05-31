@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Models\Question as Question;
 
 class MobileQuestionController extends Controller {
 
@@ -52,8 +53,24 @@ class MobileQuestionController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-        //
+    public function store($description,$user_id,$type) {
+        $data = array('user_id' => $user_id, 'description' => $description, 'type' => $type);
+        $rules = array(
+            'user_id' => 'required',
+            'description' => 'required',
+            'type' => 'required'
+        );
+        $validator = \Validator::make($data, $rules); //validation
+        if ($validator->fails()) {
+            echo $_GET['callback']."(".json_encode("Failed").")";
+        } else {
+            Question::create(array(
+                'user_id' => $user_id,
+                'description' => $description,
+                'type' => $type
+            ));
+            echo $_GET['callback']."(".json_encode("Success").")";
+        }
     }
 
     /**

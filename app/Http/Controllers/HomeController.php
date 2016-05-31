@@ -42,6 +42,24 @@ class HomeController extends Controller {
         }
     }
     
+    //Add Rescue Centers Page route
+    public function getAddrescuecenters() {
+        if (\Auth::check()) {
+            return \View::make('addrescuecenters');
+        } else {
+            return \View::make('login');
+        }
+    }
+
+    //Add ReliefCenter Page route
+    public function getAddreliefcenter() {
+        if (\Auth::check()) {
+            return \View::make('addreliefcenter');
+        } else {
+            return \View::make('login');
+        }
+    }
+
     //View Warning Page route
     public function getViewwarnings() {
         if (\Auth::check()) {
@@ -50,12 +68,22 @@ class HomeController extends Controller {
             return \View::make('login');
         }
     }
-    
+
     //Update Warning Page route
     public function getUpdatewarnings() {
         if (\Auth::check()) {
-            
+
             return \View::make('updatewarnings')->withWarning(session('warning'));
+        } else {
+            return \View::make('login');
+        }
+    }
+    
+    //Update Add news route
+    public function getAddnews() {
+        if (\Auth::check()) {
+
+            return \View::make('addnews');
         } else {
             return \View::make('login');
         }

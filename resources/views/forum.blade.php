@@ -597,8 +597,6 @@ $('.post_comment').keypress(function (e) {
             }
         });
 
-
-
     }
 });
         </script>
