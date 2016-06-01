@@ -17,25 +17,16 @@ class RescueCenterController extends Controller {
         return \View::make('viewrescuecenters')->withRescuecenters(\App\Models\RescueCenter::all());
     }
 
-    public function getMobile($lat, $lan, $max) {
-        $reliefcenters = \App\Models\ReliefCenter::all();
+    public function getMobile($town, $type) {
 
-        $result = array();
+        $rescuecenters = \DB::table('rescue_centers')
+                ->join('coverage_areas', 'rescue_centers.id', '=', 'coverage_areas.rescuer_center_id')
+                ->select('rescue_centers.id', 'rescue_centers.name', 'rescue_centers.telephone')
+                ->where('rescue_centers.type',$type)
+                ->where('coverage_areas.town',$town)
+                ->get();
 
-        foreach ($reliefcenters as $reliefcenter) {
-            $distance = ReliefCenterController::real_distance($lat, $lan, $reliefcenter->lat, $reliefcenter->lan);
-            if ($distance <= $max) {
-
-                $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
-                $txt = $distance;
-                fwrite($myfile, $txt);
-                fclose($myfile);
-
-                $result[] = $reliefcenter->address . '%' . $reliefcenter->lat . '%' . $reliefcenter->lan . '%' . $reliefcenter->capacity . '%' . $reliefcenter->current_amount . '%' . $distance;
-            }
-        }
-
-        echo $_GET['callback'] . "(" . json_encode($result) . ")";
+        echo $_GET['callback']."(".json_encode($rescuecenters).")";
     }
 
     public function store(Request $request) {
@@ -122,7 +113,7 @@ class RescueCenterController extends Controller {
         }
 
         $selected_areas = explode('%', Input::get('selected_areas'));
-       
+
         foreach ($selected_areas as $selected_area) {
             if ($selected_area != "") {
                 \App\Models\CoverageArea::create(array(

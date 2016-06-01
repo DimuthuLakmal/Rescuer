@@ -49,6 +49,8 @@ Route::get('mobilenews/all','NewsController@getMobileAll');
 
 Route::get('mobilenews/id/{id}','NewsController@getMobile');
 
+Route::get('mobile_rescue_center/town/{town}/type/{type}','RescueCenterController@getMobile');
+
 Route::controller('/','HomeController');
 
 

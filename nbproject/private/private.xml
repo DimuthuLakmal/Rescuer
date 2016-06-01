@@ -3,13 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/Rescuer/resources/views/viewrescuecenter.blade.php</file>
-            <file>file:/C:/wamp/www/Rescuer/app/Http/Controllers/UsersController.php</file>
             <file>file:/C:/wamp/www/Rescuer/app/Models/RescueCenter.php</file>
-            <file>file:/C:/wamp/www/Rescuer/resources/views/addrescuecenters.blade.php</file>
-            <file>file:/C:/wamp/www/Rescuer/app/Http/Controllers/HomeController.php</file>
-            <file>file:/C:/wamp/www/Rescuer/app/Http/Controllers/RescueCenterController.php</file>
-            <file>file:/C:/wamp/www/Rescuer/resources/views/viewrescuecenters.blade.php</file>
         </group>
     </open-files>
 </project-private>
