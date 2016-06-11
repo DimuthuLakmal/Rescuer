@@ -124,5 +124,10 @@ class ReliefCenterController extends Controller {
 
         return \Illuminate\Support\Facades\Redirect::to('reliefcenter/' . $id)->withInput()->withErrors($validator->messages());
     }
+    
+    public function getCount(){
+        $count = \Illuminate\Support\Facades\DB::select('SELECT count(id) as count FROM relief_centers');
+        echo json_encode($count[0]->count);
+    }
 
 }

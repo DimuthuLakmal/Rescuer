@@ -57,7 +57,7 @@ class MobileWarningController extends Controller {
             $result[] = $data;
         }
         
-        return response()->json($result);
+        echo $_GET['callback'] . "(" . json_encode($result) . ")";
     }
 
     /**

@@ -30,6 +30,20 @@
         <!-- bootstrap wysihtml5 - text editor -->
         <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
+        <style>
+            #mapvictim {
+                width: 530px;
+                height: 250px;
+            }
+        </style>
+        
+        <style>
+            #mapwarnings {
+                width: 530px;
+                height: 250px;
+            }
+        </style>
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -38,15 +52,16 @@
         <![endif]-->
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
         <div class="wrapper">
 
             <header class="main-header">
                 <!-- Logo -->
                 <a href="index2.html" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class="logo-mini"><b>A</b>LT</span>
+                    <span class="logo-mini"><b>RSR</b></span>
                     <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b>Admin</b>LTE</span>
+                    <span class="logo-lg"><b>Rescuer</b></span>
                 </a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top" role="navigation">
@@ -60,193 +75,40 @@
                             <li class="dropdown messages-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-envelope-o"></i>
-                                    <span class="label label-success">4</span>
+                                    <span class="label label-success" id="forum_count_min"></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="header">You have 4 messages</li>
+                                    <li class="header" id="forum_count"></li>
                                     <li>
                                         <!-- inner menu: contains the actual data -->
-                                        <ul class="menu">
-                                            <li><!-- start message -->
-                                                <a href="#">
-                                                    <div class="pull-left">
-                                                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                                    </div>
-                                                    <h4>
-                                                        Support Team
-                                                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                                    </h4>
-                                                    <p>Why not buy a new awesome theme?</p>
-                                                </a>
-                                            </li><!-- end message -->
-                                            <li>
-                                                <a href="#">
-                                                    <div class="pull-left">
-                                                        <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                                    </div>
-                                                    <h4>
-                                                        AdminLTE Design Team
-                                                        <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                                                    </h4>
-                                                    <p>Why not buy a new awesome theme?</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <div class="pull-left">
-                                                        <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                                    </div>
-                                                    <h4>
-                                                        Developers
-                                                        <small><i class="fa fa-clock-o"></i> Today</small>
-                                                    </h4>
-                                                    <p>Why not buy a new awesome theme?</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <div class="pull-left">
-                                                        <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                                    </div>
-                                                    <h4>
-                                                        Sales Department
-                                                        <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                                    </h4>
-                                                    <p>Why not buy a new awesome theme?</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <div class="pull-left">
-                                                        <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                                    </div>
-                                                    <h4>
-                                                        Reviewers
-                                                        <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                                    </h4>
-                                                    <p>Why not buy a new awesome theme?</p>
-                                                </a>
-                                            </li>
+                                        <ul class="menu" id="forum_notification">
                                         </ul>
                                     </li>
-                                    <li class="footer"><a href="#">See All Messages</a></li>
+                                    <li class="footer"><a href="/forum">See All Questions</a></li>
                                 </ul>
                             </li>
                             <!-- Notifications: style can be found in dropdown.less -->
                             <li class="dropdown notifications-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-bell-o"></i>
-                                    <span class="label label-warning">10</span>
+                                    <span class="label label-warning">3</span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="header">You have 10 notifications</li>
+                                    <li class="header" id="count_notification_mini">You have following notifications</li>
                                     <li>
                                         <!-- inner menu: contains the actual data -->
-                                        <ul class="menu">
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-users text-red"></i> 5 new members joined
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-user text-red"></i> You changed your username
-                                                </a>
-                                            </li>
+                                        <ul class="menu" id="notifitaions">
+
                                         </ul>
                                     </li>
                                     <li class="footer"><a href="#">View all</a></li>
                                 </ul>
                             </li>
-                            <!-- Tasks: style can be found in dropdown.less -->
-                            <li class="dropdown tasks-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-flag-o"></i>
-                                    <span class="label label-danger">9</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="header">You have 9 tasks</li>
-                                    <li>
-                                        <!-- inner menu: contains the actual data -->
-                                        <ul class="menu">
-                                            <li><!-- Task item -->
-                                                <a href="#">
-                                                    <h3>
-                                                        Design some buttons
-                                                        <small class="pull-right">20%</small>
-                                                    </h3>
-                                                    <div class="progress xs">
-                                                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                            <span class="sr-only">20% Complete</span>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li><!-- end task item -->
-                                            <li><!-- Task item -->
-                                                <a href="#">
-                                                    <h3>
-                                                        Create a nice theme
-                                                        <small class="pull-right">40%</small>
-                                                    </h3>
-                                                    <div class="progress xs">
-                                                        <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                            <span class="sr-only">40% Complete</span>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li><!-- end task item -->
-                                            <li><!-- Task item -->
-                                                <a href="#">
-                                                    <h3>
-                                                        Some task I need to do
-                                                        <small class="pull-right">60%</small>
-                                                    </h3>
-                                                    <div class="progress xs">
-                                                        <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                            <span class="sr-only">60% Complete</span>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li><!-- end task item -->
-                                            <li><!-- Task item -->
-                                                <a href="#">
-                                                    <h3>
-                                                        Make beautiful transitions
-                                                        <small class="pull-right">80%</small>
-                                                    </h3>
-                                                    <div class="progress xs">
-                                                        <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                            <span class="sr-only">80% Complete</span>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li><!-- end task item -->
-                                        </ul>
-                                    </li>
-                                    <li class="footer">
-                                        <a href="#">View all tasks</a>
-                                    </li>
-                                </ul>
-                            </li>
+
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                    <img src="dist/img/avatar5.png" class="user-image" alt="User Image">
                                     <span class="hidden-xs">
                                         @if(Auth::check())
                                         {{Auth::user()->username}}
@@ -256,40 +118,20 @@
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
-                                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                        <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
                                         <p>
                                             @if(Auth::check())
                                             {{Auth::user()->username}}
                                             @endif
-                                            <small>Member since Nov. 2012</small>
                                         </p>
-                                    </li>
-                                    <!-- Menu Body -->
-                                    <li class="user-body">
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Followers</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Sales</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Friends</a>
-                                        </div>
                                     </li>
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
-                                        <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                        </div>
-                                        <div class="pull-right">
-                                            <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <div align="center">
+                                            <a href="/users/signout" class="btn btn-default btn-flat">Sign out</a>
                                         </div>
                                     </li>
                                 </ul>
-                            </li>
-                            <!-- Control Sidebar Toggle Button -->
-                            <li>
-                                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -302,7 +144,7 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
                         </div>
                         <div class="pull-left info">
                             <p>@if(Auth::check())
@@ -326,42 +168,71 @@
                         <li class="header">MAIN NAVIGATION</li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-dashboard"></i> <span>WARNINGS</span> <i class="fa fa-angle-left pull-right"></i>
+                                <i class="fa fa-warning"></i> <span>Warnings</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="/addwarnings"><i class="fa fa-circle-o"></i> New Warning</a></li>
-                                <li><a href="ViewWarnings.php"><i class="fa fa-circle-o"></i> View All Warnings</a></li>
-                                <li><a href="#"><i class="fa fa-circle-o"></i> Update Warnings</a></li>
+                                <li><a href="/viewwarnings"><i class="fa fa-circle-o"></i> View All Warnings</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/forum">
+                                <i class="fa fa-comment"></i> <span>Forum</span>
+                            </a>
+                        </li>         
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-newspaper-o"></i>
+                                <span>News</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="/addnews"><i class="fa fa-circle-o"></i> Add News</a></li>
+                                <li><a href="/news"><i class="fa fa-circle-o"></i> View News</a></li>
+
                             </ul>
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-files-o"></i>
-                                <span>FAQ</span>
-                                <span class="label label-primary pull-right">4</span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="faq.php"><i class="fa fa-circle-o"></i> View All Questions</a></li>
-                                <li><a href="#"><i class="fa fa-circle-o"></i> Followed Questions</a></li>
-                            </ul>
-                        </li>           
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-pie-chart"></i>
-                                <span>Guidelines</span>
+                                <i class="fa fa-hospital-o"></i>
+                                <span>Rescue Centers</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> View Guidelines</a></li>
-                                <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Update Guidelines</a></li>
+                                <li><a href="/addrescuecenters"><i class="fa fa-circle-o"></i> Add Rescue Centers</a></li>
+                                <li><a href="/rescuecenter"><i class="fa fa-circle-o"></i> View Rescue Centers</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-home"></i>
+                                <span>Relief Centers</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="/addreliefcenter"><i class="fa fa-circle-o"></i> Add Relief Centers</a></li>
+                                <li><a href="/reliefcenter"><i class="fa fa-circle-o"></i> View Relief Centers</a></li>
 
                             </ul>
                         </li>
                         <li>
-                            <a href="Prewarnings.php">
-                                <i class="fa fa-envelope"></i> <span>Weather Warnings</span>
+                            <a href="/prewarnings">
+                                <i class="fa fa-warning"></i> <span>Weather Warnings</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="/victims">
+                                <i class="fa fa-users"></i> <span>View Victims</span>
+                            </a>
+                        </li>
+                        @if(Auth::user()->username=="admin")
+                        <li>
+                            <a href="/viewallusers">
+                                <i class="fa fa-user"></i> <span>View Users</span>
+                            </a>
+                        </li>
+                        @endif
 
                     </ul>
                 </section>
@@ -372,81 +243,112 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>
-                        Dashboard
-                        <small>Control panel</small>
-                    </h1>
-                    <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">Dashboard</li>
-                    </ol>
+
                 </section>
 
                 <!-- Main content -->
                 <section class="content">
-                    <!-- Small boxes (Stat box) -->
-                    <!-- Main row -->
+
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box bg-yellow">
+                                <span class="info-box-icon"><i class="ion ion-ios-people"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Victims</span>
+                                    <span class="info-box-number" id="victim_count"></span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 10%"></div>
+                                    </div>
+                                    <span class="progress-description">
+                                        50% Increase in 30 Days
+                                    </span>
+                                </div><!-- /.info-box-content -->
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box bg-aqua">
+                                <span class="info-box-icon"><i class="ion ion-document-text"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Unread Questions</span>
+                                    <span class="info-box-number" id="forum_count_span"></span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 9%"></div>
+                                    </div>
+                                    <span class="progress-description">
+                                        20% Increase in 30 Days
+                                    </span>
+                                </div><!-- /.info-box-content -->
+                            </div>
+                        </div><!-- /.col -->
+
+                        <!-- fix for small devices only -->
+                        <div class="clearfix visible-sm-block"></div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box bg-red">
+                                <span class="info-box-icon"><i class="ion ion-ios-analytics"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Warnings</span>
+                                    <span class="info-box-number" id="warnings_count"></span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 50%"></div>
+                                    </div>
+                                    <span class="progress-description">
+                                        70% Increase in 30 Days
+                                    </span>
+                                </div><!-- /.info-box-content -->
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box bg-green">
+                                <span class="info-box-icon"><i class="ion-ios-home"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Relief Centers</span>
+                                    <span class="info-box-number" id="relief_count"></span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 40%"></div>
+                                    </div>
+                                    <span class="progress-description">
+                                        40% Increase in 30 Days
+                                    </span>
+                                </div><!-- /.info-box-content -->
+                            </div>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+
+
                     <div class="row">
                         <!-- Left col -->
-                        <section class="col-lg-7 connectedSortable">
-                            <!-- Custom tabs (Charts with tabs)-->
-                            <div class="nav-tabs-custom">
-                                <!-- Tabs within a box -->
-                                <ul class="nav nav-tabs pull-right">
-                                    <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-                                    <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
-                                    <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
-                                </ul>
-                                <div class="tab-content no-padding">
-                                    <!-- Morris chart - Sales -->
-                                    <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
-                                    <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
-                                </div>
-                            </div><!-- /.nav-tabs-custom -->
-
-
+                        <section class="col-lg-12 connectedSortable">
+                            <div class="box box-info">
+                                <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=6.918736&lon=79.861274&name=Colombo"> </iframe>
+                            </div>                           
 
                         </section><!-- /.Left col -->
                         <!-- right col (We are only adding the ID to make the widgets sortable)-->
-                        <section class="col-lg-5 connectedSortable">
+                        <section class="col-lg-6 connectedSortable">
 
-                            <!-- Map box -->
-                            <div class="box box-solid bg-light-blue-gradient">
-                                <div class="box-header">
-                                    <!-- tools box -->
-                                    <div class="pull-right box-tools">
-                                        <button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>
-                                        <button class="btn btn-primary btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
-                                    </div><!-- /. tools -->
+                            <div class="box box-danger">
+                                <div class="box-header with-border">
+                                    <h4 class="box-title">Victim Map</h4>
+                                </div><!-- /.box-header -->
+                                <div id="mapvictim">
 
-                                    <i class="fa fa-map-marker"></i>
-                                    <h3 class="box-title">
-                                        Visitors
-                                    </h3>
-                                </div>
-                                <div class="box-body">
-                                    <div id="world-map" style="height: 250px; width: 100%;"></div>
-                                </div><!-- /.box-body-->
-                                <div class="box-footer no-border">
-                                    <div class="row">
-                                        <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                                            <div id="sparkline-1"></div>
-                                            <div class="knob-label">Visitors</div>
-                                        </div><!-- ./col -->
-                                        <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                                            <div id="sparkline-2"></div>
-                                            <div class="knob-label">Online</div>
-                                        </div><!-- ./col -->
-                                        <div class="col-xs-4 text-center">
-                                            <div id="sparkline-3"></div>
-                                            <div class="knob-label">Exists</div>
-                                        </div><!-- ./col -->
-                                    </div><!-- /.row -->
                                 </div>
                             </div>
-                            <!-- /.box -->
 
+                        </section><!-- right col -->
 
+                        <section class="col-lg-6 connectedSortable">
+
+                            <div class="box box-danger">
+                                <div class="box-header with-border">
+                                    <h4 class="box-title">Warnings Map</h4>
+                                </div><!-- /.box-header -->
+                                <div id="mapwarnings">
+
+                                </div>
+                            </div>
 
                         </section><!-- right col -->
                     </div><!-- /.row (main row) -->
@@ -633,8 +535,7 @@
         <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
         <script>
-$.widget.bridge('uibutton', $.ui.button);
-        </script>
+$.widget.bridge('uibutton', $.ui.button);</script>
         <!-- Bootstrap 3.3.5 -->
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <!-- Morris.js charts -->
@@ -664,6 +565,228 @@ $.widget.bridge('uibutton', $.ui.button);
         <script src="dist/js/pages/dashboard.js"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="dist/js/demo.js"></script>
+
+        <script>
+jQuery.ajax({
+    type: "GET",
+    url: 'http://localhost/notificationusers',
+    dataType: 'json',
+    success: function (obj, textstatus) {
+        $('#notifitaions').append('<li>' +
+                '<a href="/viewallusers">' +
+                '<i class="fa fa-users text-aqua"></i>' + obj + " user signup requests" +
+                '</a>' +
+                '</li>')
+    }
+});</script>
+
+        <script>
+            jQuery.ajax({
+                type: "GET",
+                url: 'http://localhost/victimscount',
+                dataType: 'json',
+                success: function (obj, textstatus) {
+                    $('#victim_count').text(obj)
+                }
+            })
+                    ;</script>
+
+        <script>
+            jQuery.ajax({
+                type: "GET",
+                url: 'http://localhost/notificationvictims',
+                dataType: 'json',
+                success: function (obj, textstatus) {
+                    $('#notifitaions').append('<li>' +
+                            '<a href="/victims">' +
+                            '<i class="fa fa-users text-red"></i>' + obj + " victims are unchecked" +
+                            '</a>' +
+                            '</li>')
+                }
+            });</script>
+        
+        <script>
+            jQuery.ajax({
+                type: "GET",
+                url: 'http://localhost/reliefcount',
+                dataType: 'json',
+                success: function (obj, textstatus) {
+                    $('#relief_count').text(obj);
+                }
+            });</script>
+
+        <script>
+            jQuery.ajax({
+                type: "GET",
+                url: 'http://localhost/notificationforum',
+                dataType: 'json',
+                success: function (obj, textstatus) {
+                    $('#forum_count').html("&nbsp;&nbsp;You have  " + obj.length + " forum questions");
+                    $('#forum_count_min').text(obj.length);
+                    $('#forum_count_span').text(obj.length);
+                    $('#forum_count_min_2').text(obj.length);
+                    $.each(obj, function (index, element) {
+                        $('#forum_notification').append('<li><!-- start message -->' +
+                                '<a href="#">' + '<div class="pull-left">' +
+                                '<img src="dist/img/avatar.png" class="img-circle" alt="User Image">' + '</div>' +
+                                '<h4>' +
+                                element.username +
+                                '</h4>' +
+                                '<p>' + element.description + '</p>' +
+                                '</a>' +
+                                '</li>')
+                    });
+
+                }
+            });
+        </script>
+
+        <script>
+//            jQuery.ajax({
+//                type: "GET",
+//                url: 'http://localhost/notificationprewarnings',
+//                dataType: 'json',
+//                success: function (obj, textstatus) {
+//                    var countDanger = 0;
+//                    var countModerate = 0;
+//                    var countExtreme = 0;
+//                    var totalCount = 0;
+//                    $.each(obj, function (index, element) {
+//                        var details = element.split("%");
+//                        if (details[8] == "extremly danger") {
+//                            countExtreme++;
+//                        } else if (details[8] == "moderate") {
+//                            countModerate++;
+//                        } else if (details[8] == "danger") {
+//                            countDanger++;
+//                        }
+//                        totalCount++;
+//                    });
+//                    $('#warnings_count').text(totalCount);
+//                    if (countDanger != 0) {
+//                        $('#notifitaions').append('<li>' +
+//                                '<a href="/prewarnings">' +
+//                                '<i class="fa fa-warning text-yellow"></i>' + countDanger + ' danger warnings' +
+//                                '</a>' +
+//                                '</li>');
+//                    }
+//                    if (countExtreme != 0) {
+//                        $('#notifitaions').append('<li>' +
+//                                '<a href="/prewarnings">' +
+//                                '<i class="fa fa-warning text-red"></i>' + countExtreme + ' extreme danger warnings' +
+//                                '</a>' +
+//                                '</li>');
+//                    }
+//                    if (countModerate != 0) {
+//                        $('#notifitaions').append('<li>' +
+//                                '<a href="/prewarnings">' +
+//                                '<i class="fa fa-warning text-blue"></i>' + countModerate + ' moderate danger warnings' +
+//                                '</a>' +
+//                                '</li>');
+//                    }
+//                }
+//            });</script>
+
+        <script>
+            var map;
+            function initialize() {
+
+                var mapOptions = {
+                    zoom: 8,
+                    center: new google.maps.LatLng(6.990410, 81.056614),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                map = new google.maps.Map(document.getElementById('mapvictim'),
+                        mapOptions);
+                jQuery.ajax({
+                    type: "GET",
+                    url: 'http://localhost/victimmap',
+                    dataType: 'json',
+                    success: function (obj, textstatus) {
+                        $.each(obj, function (index, text) {
+                            details = text.split(" ");
+                            var marker = new google.maps.Marker({
+                                position: new google.maps.LatLng(details[0], details[1]),
+                                title: details[8]
+                            });
+                            marker.setMap(map);
+                        });
+                    }
+                });
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+        <script>
+            var map2;
+            function initialize2() {
+
+                var mapOptions2 = {
+                    zoom: 8,
+                    center: new google.maps.LatLng(6.990410, 81.056614),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                map2 = new google.maps.Map(document.getElementById('mapwarnings'),
+                        mapOptions2);
+                        
+                
+                jQuery.ajax({
+                    type: "GET",
+                    url: 'http://localhost/notificationprewarnings',
+                    dataType: 'json',
+                    success: function (obj, textstatus) {
+                        var countDanger = 0;
+                        var countModerate = 0;
+                        var countExtreme = 0;
+                        var totalCount = 0;
+                        $.each(obj, function (index, element) {
+                            var details = element.split("%");
+                            if (details[8] == "extremly danger") {
+                                countExtreme++;
+                            } else if (details[8] == "moderate") {
+                                countModerate++;
+                            } else if (details[8] == "danger") {
+                                countDanger++;
+                            }
+                            totalCount++;
+                            
+                            var marker = new google.maps.Marker({
+                                position: new google.maps.LatLng(details[6], details[7]),
+                                title: details[8]
+                            });
+                            marker.setMap(map2);
+                            
+                        });
+                        $('#warnings_count').text(totalCount);
+                        if (countDanger != 0) {
+                            $('#notifitaions').append('<li>' +
+                                    '<a href="/prewarnings">' +
+                                    '<i class="fa fa-warning text-yellow"></i>' + countDanger + ' danger warnings' +
+                                    '</a>' +
+                                    '</li>');
+                        }
+                        if (countExtreme != 0) {
+                            $('#notifitaions').append('<li>' +
+                                    '<a href="/prewarnings">' +
+                                    '<i class="fa fa-warning text-red"></i>' + countExtreme + ' extreme danger warnings' +
+                                    '</a>' +
+                                    '</li>');
+                        }
+                        if (countModerate != 0) {
+                            $('#notifitaions').append('<li>' +
+                                    '<a href="/prewarnings">' +
+                                    '<i class="fa fa-warning text-blue"></i>' + countModerate + ' moderate danger warnings' +
+                                    '</a>' +
+                                    '</li>');
+                        }
+                    }
+                });
+                
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize2);
+        </script>
+
     </body>
 </html>
 

@@ -15,6 +15,18 @@ class VictimController extends Controller {
     public function index() {      
         return \View::make('viewvictims')->withVictims(\App\Models\Victim::all());
     }
+    
+    public function getForMap() {      
+        $victims = \App\Models\Victim::all();
+        $result = array();
+        
+        foreach ($victims as $victim){
+            $result[] = $victim->lat.' '.$victim->lan;
+        }
+        
+        echo json_encode($result);
+        
+    }
 
     public function store($user_id, $victims_amount, $lat, $lan, $contact_number, $type, $address) {
         $data = array('user_id' => $user_id, 'victims_amount' => $victims_amount, 'lat' => $lat, 'lan' => $lan, 'contact_number' => $contact_number, 'type'=>$type,'address'=>$address);
@@ -55,6 +67,16 @@ class VictimController extends Controller {
         $victim->action = $request->input('action');
         $victim->save();
         echo json_encode('successfully_updated');
+    }
+    
+    public function victimCount(){
+        $count = \Illuminate\Support\Facades\DB::select('SELECT count(id) as count FROM victims WHERE action=0');
+        echo json_encode($count[0]->count);
+    }
+    
+    public function victimAllCount(){
+        $count = \Illuminate\Support\Facades\DB::select('SELECT count(id) as count FROM victims');
+        echo json_encode($count[0]->count);
     }
 
 }

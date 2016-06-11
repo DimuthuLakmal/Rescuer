@@ -11,7 +11,7 @@ class GeneralUser extends Eloquent {
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['user_level'];
     public $timestamps = false;
 
     public function user() {

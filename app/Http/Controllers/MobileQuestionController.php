@@ -35,7 +35,7 @@ class MobileQuestionController extends Controller {
             $result[] = array_merge((array) $question, $replies_by_app_users, $replies_by_authority);
         }
         //var_dump($result);
-        return response()->json($result);
+        echo $_GET['callback'] . "(" . json_encode($result) . ")";
     }
 
     /**

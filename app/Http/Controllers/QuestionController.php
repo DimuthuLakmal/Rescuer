@@ -14,7 +14,6 @@ class QuestionController extends Controller {
      */
     public function index() {
         if (\Auth::check()) {
-
             $result = array();
             $questions = \DB::table('questions')
                     ->join('app_users', 'app_users.id', '=', 'questions.user_id')
@@ -100,6 +99,12 @@ class QuestionController extends Controller {
      */
     public function destroy($id) {
         //
+    }
+    
+    public function getNotification(){
+        
+        $forumnotification = \Illuminate\Support\Facades\DB::select('SELECT u.username,q.description FROM answers a right join questions q on a.q_id=q. id left join app_users u on q.user_id=u.id where a.description is null');
+        echo json_encode($forumnotification);
     }
 
 }

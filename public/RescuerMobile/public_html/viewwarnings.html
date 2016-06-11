@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
     <head>
@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="css/framework.css">
         <link rel="stylesheet" type="text/css" href="css/washington.css">
         <link rel="stylesheet" type="text/css" href="css/modal.css">
+        <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=initialize"></script>
         <script src="js/webfont.js"></script>
         <script>
             WebFont.load({
@@ -25,7 +26,7 @@
                 height: 100%;
             }
         </style>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+        
         <script>
             var map;
             function initialize() {
@@ -38,9 +39,11 @@
                 map = new google.maps.Map(document.getElementById('map_canvas'),
                         mapOptions);
 
+
                 jQuery.ajax({
                     type: "GET",
-                    url: 'http://localhost/mobilewarnings',
+                    dataType: 'jsonp',
+                    url: 'http://titansmora.org/mobilewarnings',
                     success: function (obj, textstatus) {
                         if (!('error' in obj)) {
                             $.each(obj, function (index, text) {
@@ -48,9 +51,19 @@
 
                                 var marker = new google.maps.Marker({
                                     position: new google.maps.LatLng(details[6], details[7]),
-                                    title: details[8]
+                                    title: details[8],
+                                    clickable: true
                                 });
                                 marker.setMap(map);
+                                var infoWnd = new google.maps.InfoWindow({
+                                    content: details[8]
+                                });
+                                infoWnd.open(null, marker);
+
+                                google.maps.event.addListener(marker, "click", function () {
+                                    infoWnd.setContent(details[8]);
+                                    infoWnd.open(map, marker);
+                                });
                             });
                         }
                         else {
@@ -61,7 +74,7 @@
 
             }
 
-            google.maps.event.addDomListener(window, 'load', initialize);
+            //google.maps.event.addDomListener(window, 'load', initialize);
         </script>
         <script type="text/javascript" src="js/modernizr.js"></script>
         <link rel="shortcut icon" type="image/x-icon" href="images/logoStandford32.ico">
@@ -78,37 +91,49 @@
                             <div class="nav-menu-header">
                                 <div class="logo">Rescuer</div>
                             </div>
-                            <a class="w-clearfix w-inline-block nav-menu-link" href="index2.html" data-load="1">
+                            <a class="w-clearfix w-inline-block nav-menu-link" href="news.html" data-load="1">
                                 <div class="icon-list-menu">
-                                    <div class="icon ion-ios-home-outline"></div>
+                                    <div class="icon ion-ios-paper"></div>
                                 </div>
-                                <div class="nav-menu-titles">Home</div>
+                                <div class="nav-menu-titles">News</div>
                             </a>
-                            <a class="w-clearfix w-inline-block nav-menu-link" href="search_by_route.html" data-load="1">
+                            <a class="w-clearfix w-inline-block nav-menu-link" href="viewwarnings.html" data-load="1">
                                 <div class="icon-list-menu">
-                                    <div class="icon ion-ios-search"></div>
+                                    <div class="icon ion-android-alert"></div>
                                 </div>
                                 <div class="nav-menu-titles">View Warnings</div>
                             </a>
-                            <a class="w-clearfix w-inline-block nav-menu-link" href="search_by_destination.html" data-load="1">
+                            <a class="w-clearfix w-inline-block nav-menu-link" href="forum.html" data-load="1">
                                 <div class="icon-list-menu">
-                                    <div class="icon ion-ios-search"></div>
+                                    <div class="icon ion-android-document"></div>
                                 </div>
-                                <div class="nav-menu-titles">FAQ</div>
+                                <div class="nav-menu-titles">Forum</div>
                             </a>
-                            <a class="w-clearfix w-inline-block nav-menu-link" href="traffic.html">
+                            <a class="w-clearfix w-inline-block nav-menu-link" href="viewreliefcenters.html" data-load="1">
                                 <div class="icon-list-menu">
-                                    <div class="icon ion-ios-navigate"></div>
+                                    <div class="icon ion-android-document"></div>
                                 </div>
-                                <div class="nav-menu-titles">Make A Plan</div>
+                                <div class="nav-menu-titles">Relief Centers</div>
                             </a>
-                            <a class="w-clearfix w-inline-block nav-menu-link" href="traffic.html">
+                            <a class="w-clearfix w-inline-block nav-menu-link" href="victims.html">
                                 <div class="icon-list-menu">
-                                    <div class="icon ion-ios-navigate"></div>
+                                    <div class="icon ion-ios-medical"></div>
                                 </div>
-                                <div class="nav-menu-titles">Emergency Plan</div>
+                                <div class="nav-menu-titles">Ask for help</div>
                             </a>
-                            <a class="w-clearfix w-inline-block nav-menu-link" href="index.html" data-load="1">
+                            <a class="w-clearfix w-inline-block nav-menu-link" href="askforhelp.html">
+                                <div class="icon-list-menu">
+                                    <div class="icon ion-ios-bell"></div>
+                                </div>
+                                <div class="nav-menu-titles">Emergency</div>
+                            </a>
+                            <a class="w-clearfix w-inline-block nav-menu-link" href="addnumber.html">
+                                <div class="icon-list-menu">
+                                    <div class="icon ion-ios-telephone"></div>
+                                </div>
+                                <div class="nav-menu-titles">Add Numbers</div>
+                            </a>
+                            <a class="w-clearfix w-inline-block nav-menu-link" href="login.html" data-load="1">
                                 <div class="icon-list-menu">
                                     <div class="icon ion-ios-cloud-upload-outline"></div>
                                 </div>
@@ -138,7 +163,7 @@
         <script type="text/javascript" src="js/framework.js"></script>
         <script>
             $(document).ready(function () {
-                
+
 
             });
         </script>
@@ -154,7 +179,7 @@
                 }
             });
         </script>
-        
+
         <!--[if lte IE 9]><script src="js/placeholders.min.js"></script><![endif]-->
     </body>
 </html>

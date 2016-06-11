@@ -10,9 +10,17 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+//route for signout
+Route::get('users/signout','UsersController@signout');
 
 //route for creating users and access user db
 Route::resource('users','UsersController');
+
+//route for view all users and access user db
+Route::get('viewallusers','UsersController@viewAllUsers');
+
+//route for view all users and access user db
+Route::get('subscriber','UsersController@storeSubscribers');
 
 //route for creating warnings and access warnigns db
 Route::resource('warnings','WarningController');
@@ -30,6 +38,12 @@ Route::resource('reliefcenter','ReliefCenterController');
 Route::resource('mobilewarnings','MobileWarningController');
 
 Route::resource('mobileforum','MobileQuestionController');
+
+Route::get('mobileuser/username/{username}/password/{password}/repassword/{repassword}/mobile/{mobile}','MobileUserController@store');
+
+Route::get('mobileuser/username/{username}/password/{password}/repassword/{repassword}','MobileUserController@storeWithoutMobile');
+
+Route::get('mobileuser/username/{username}/password/{password}','MobileUserController@checklogin');
 
 Route::get('mobileforum/description/{description}/user_id/{user_id}/type/{type}','MobileQuestionController@store');
 
@@ -50,6 +64,20 @@ Route::get('mobilenews/all','NewsController@getMobileAll');
 Route::get('mobilenews/id/{id}','NewsController@getMobile');
 
 Route::get('mobile_rescue_center/town/{town}/type/{type}','RescueCenterController@getMobile');
+
+Route::get('victimmap','VictimController@getForMap');
+
+Route::get('notificationforum','QuestionController@getNotification');
+
+Route::get('notificationprewarnings','PreWarningController@getNotification');
+
+Route::get('notificationusers','UsersController@countUnaccepted');
+
+Route::get('notificationvictims','VictimController@victimCount');
+
+Route::get('victimscount','VictimController@victimAllCount');
+
+Route::get('reliefcount','ReliefCenterController@getCount');
 
 Route::controller('/','HomeController');
 

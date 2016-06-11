@@ -13,7 +13,7 @@ class HomeController extends Controller {
 //        $this->middleware('auth.basic', ['only' => ['getIndex']]);
 //    }
     public function getIndex() {
-        if (\Auth::check()) {
+        if (\Auth::check() && \Auth::user()->accepted==1) {
             return \View::make('index');
         } else {
             return \View::make('login');
@@ -35,7 +35,7 @@ class HomeController extends Controller {
 
     //Add Warnings Page route
     public function getAddwarnings() {
-        if (\Auth::check()) {
+        if (\Auth::check() && \Auth::user()->accepted==1) {
             return \View::make('addwarnings');
         } else {
             return \View::make('login');
@@ -44,7 +44,7 @@ class HomeController extends Controller {
     
     //Add Rescue Centers Page route
     public function getAddrescuecenters() {
-        if (\Auth::check()) {
+        if (\Auth::check() && \Auth::user()->accepted==1) {
             return \View::make('addrescuecenters');
         } else {
             return \View::make('login');
@@ -53,7 +53,7 @@ class HomeController extends Controller {
 
     //Add ReliefCenter Page route
     public function getAddreliefcenter() {
-        if (\Auth::check()) {
+        if (\Auth::check() && \Auth::user()->accepted==1) {
             return \View::make('addreliefcenter');
         } else {
             return \View::make('login');
@@ -62,7 +62,7 @@ class HomeController extends Controller {
 
     //View Warning Page route
     public function getViewwarnings() {
-        if (\Auth::check()) {
+        if (\Auth::check() && \Auth::user()->accepted==1) {
             return redirect('warnings');
         } else {
             return \View::make('login');
@@ -71,7 +71,7 @@ class HomeController extends Controller {
 
     //Update Warning Page route
     public function getUpdatewarnings() {
-        if (\Auth::check()) {
+        if (\Auth::check() && \Auth::user()->accepted==1) {
 
             return \View::make('updatewarnings')->withWarning(session('warning'));
         } else {
