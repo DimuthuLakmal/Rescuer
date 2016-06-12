@@ -27,9 +27,9 @@ class HomeController extends Controller {
     public function postLogin() {
         $creds = array('username' => Input::get('username'), 'password' => Input::get('password'));
         if (\Auth::attempt($creds)) {
-            return \Illuminate\Support\Facades\Redirect::intended('index');
+            return \Illuminate\Support\Facades\Redirect::intended();
         } else {
-            return \Illuminate\Support\Facades\Redirect::to('login')->withInput();
+            return \Illuminate\Support\Facades\Redirect::to('login')->withInput()->withErrors("Fail");;
         }
     }
 
@@ -81,6 +81,7 @@ class HomeController extends Controller {
     
     //Update Add news route
     public function getAddnews() {
+        return \View::make('addnews');
         if (\Auth::check()) {
 
             return \View::make('addnews');

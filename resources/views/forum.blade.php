@@ -440,7 +440,7 @@
                                             <!-- .img-push is used to add margin to elements next to floating images -->
                                             <div class="img-push">
                                                 <input type="hidden" value="<?php echo $question['id'] . '%' . Auth::user()->username . '%' . Auth::user()->id ?>" name="<?php echo $question['id'] ?>">
-                                                <input type="text" class="form-control input-sm post_comment" placeholder="Press enter to post comment">                                                             
+                                                <input type="text" class="form-control input-sm post_comment" placeholder="Press enter to post comment" required>                                                             
                                             </div>
                                         </form>
                                     </div><!-- /.box-footer -->
@@ -584,18 +584,24 @@ $.widget.bridge('uibutton', $.ui.button);
 $('.post_comment').keypress(function (e) {
     if (e.which == 13) {
         e.preventDefault();
+        var element = $(this);
         var comment = $(this).val();
-        //alert(comment);
-        var details = $(this).prev().val().split("%");
-        var _token = '<?php echo csrf_token() ?>';
-        jQuery.ajax({
-            type: "POST",
-            url: 'answer',
-            data: {_token:_token ,q_id: details[0], user_id: details[2], description: comment},
-            success: function (obj, textstatus) {
-                $('#' + (details[0])).append('<div class=\'box-comment\'><div class=\'comment-text\'><span class=\'username\'>' + details[1] + '</span>' + comment + '<\div><\div>');
-            }
-        });
+        if (comment != "") {
+            //alert(comment);
+            var details = $(this).prev().val().split("%");
+            var _token = '<?php echo csrf_token() ?>';
+            jQuery.ajax({
+                type: "POST",
+                url: 'answer',
+                data: {_token: _token, q_id: details[0], user_id: details[2], description: comment},
+                success: function (obj, textstatus) {
+                    $('#' + (details[0])).append('<div class=\'box-comment\'><div class=\'comment-text\'><span class=\'username\'>' + details[1] + '</span>' + comment + '<\div><\div>');
+                    element.val("");
+                }
+            });
+        } else {
+            alert("Please enter your comment");
+        }
 
     }
 });

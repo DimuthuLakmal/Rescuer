@@ -140,11 +140,25 @@
                     success: function (obj, textstatus) {
                         if (!('error' in obj)) {
                             $.each(obj, function (index, element) {
+                                var numberOfLength = Object.keys(element).length - 4;
+                                var comment = "<table style='color:gray;font-size:12px'>";
+//                                if(element[0]!=null){
+//                                    alert(element[0].username);
+//                                }
+
+                                for (i = 0; i < numberOfLength; i++) {
+                                    if (element[i]!= undefined) {
+                                        comment += '<tr><td><b>&nbsp;&nbsp' + element[i].username + "</b></td><td> &nbsp;&nbsp;&nbsp;&nbsp;" + element[i].description + "</td></tr>";
+                                    }
+                                }
+                                comment += "</table>";
                                 $('#askedQ').append('<div class=\"row\" style=\'background-color: #f6f6f6;\'>' +
                                         '<div class=\"container\"' +
                                         '<br>' +
                                         '<div class=\"container\"><br>' +
-                                        '<p><b>' + element.description + '</b></p>' +
+                                        '<b>' + element.username + '</b><br>' +
+                                        element.description + '<br>' +
+                                        '<p>' + comment + '</p>' +
                                         '</div>' +
                                         '<table class=\'table table-striped\' id=\'' + element.id + '\'>' +
                                         '</table>' +
@@ -189,7 +203,7 @@
                                     '<div class="container">' +
                                     '<form>' +
                                     '<input type=\"hidden\" value=\"' + 1 + '\">' +
-                                    '<input type=\"text\" class=\"form-control post_comment\" placeholder=\"Enter your comment\"><br>' +
+                                    '<input type=\"text\" class=\"form-control post_comment\" placeholder=\"Enter your comment\" required><br>' +
                                     '<button class=\"btn btn-sm btn-info comment_button\">Comment</button>' +
                                     '</form>' +
                                     '</div>' +

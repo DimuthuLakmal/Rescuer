@@ -422,7 +422,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab_1">
                                     <form action="/news" method="POST" class='form-horizontal'>
-                                        <input type="hidden" value="{{Auth::user()->id}}" name="user_id" id="user_id_news">
+                                        <input type="hidden" value="1" name="user_id" id="user_id_news">
                                         <input type="hidden" value="News" name="type" id="type">
                                         <div class="form-group">
                                             <label  class="col-sm-2 control-label">Title</label>
@@ -441,7 +441,6 @@
                                         <div class="form-group">
 
                                             <button class="btn btn-primary" style="color: white;display:block; margin: 0 auto;" id="post_news">Post</button>
-                                            <button class="btn btn-primary" style="color: white;display:block; margin: 0 auto;" id="post_news">Preview</button>
 
                                         </div>
                                         <?php if (!empty($errors) && count($errors) > 0) { ?>
@@ -456,8 +455,8 @@
                                     </form>
                                 </div><!-- /.tab-pane -->
                                 <div class="tab-pane" id="tab_2">
-                                    <form  action="/news" method="POST" class='form-horizontal'>
-                                        <input type="hidden" value="{{Auth::user()->id}}" name="user_id" id="user_id_notification">
+                                    <form  action="smsreceiver.php" method="GET" class='form-horizontal'>
+                                        <input type="hidden" value="1" name="user_id" id="user_id_notification">
                                         <input type="hidden" value="Notification" name="type" id="type">
                                         <div class="form-group">
                                             <label  class="col-sm-2 control-label">Title</label>
@@ -471,7 +470,6 @@
                                                 <textarea name="description" id="editor_notification" style="width:100%" rows="10"></textarea>
                                             </div>
                                         </div>
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <a class="btn btn-default" style="color: #a07cbc;display: none" id="modalBtn1" href="#modal"><strong>Successfully insterted</strong></a>
                                         <div class="form-group">
 

@@ -33,11 +33,11 @@
                 <p class="login-box-msg">Sign in to start your session</p>
                 <form action="/login" method="POST">
                     <div class="form-group has-feedback">
-                        <input type="text" class="form-control" placeholder="User Name" name="username">
+                        <input type="text" class="form-control" placeholder="User Name" name="username" id="username">
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input type="password" class="form-control" placeholder="Password" name="password">
+                        <input type="password" class="form-control" placeholder="Password" name="password" id="password">
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     <div class="row">
@@ -49,14 +49,13 @@
                             </div>
                         </div><!-- /.col -->
                         <div class="col-xs-4">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-flat" id="submitbtn">Sign In</button>
                         </div><!-- /.col -->
                     </div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 </form>
                 
-                <?php 
-                if(isset($_GET['fail'])){?>
+                <?php if (!empty($errors) && count($errors) > 0) { ?>
                 <div class="alert alert-danger alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     <h4><i class="icon fa fa-ban"></i> Login Failed!</h4>

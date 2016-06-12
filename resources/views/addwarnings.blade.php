@@ -476,7 +476,8 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Category</label>
                                     <div class="col-sm-10">
-                                        <select class="form-control select2" style="width: 100%;" name="type" value="{{ old('type') }}">
+                                        <select class="form-control select2" style="width: 100%;" name="type" id="type" value="{{ old('type') }}">
+                                            <option disabled selected value> Select a type </option>
                                             <option value="Land Slide">Land Slide</option>
                                             <option value="Wild Fire">Wild Fire</option>
                                             <option value="Flood">Flood</option>
@@ -498,7 +499,8 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Level</label>
                                     <div class="col-sm-10">                                                                                      
-                                        <select class="form-control select2" style="width: 100%;" name="level" value="{{ old('level') }}">
+                                        <select class="form-control select2" style="width: 100%;" name="level" id="level" value="{{ old('level') }}">
+                                            <option disabled selected value> Select level </option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -508,7 +510,7 @@
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             </div><!-- /.box-body -->
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-info pull-right">Add Warning</button>
+                                <button type="submit" class="btn btn-info pull-right" id="submitbtn">Add Warning</button>
                             </div>
                             <a class="btn btn-default" style="color: #a07cbc;display: none" id="modalBtn" href="#modal"><strong>Successfully insterted</strong></a>
                             <?php if (!empty($errors) && count($errors) > 0) { ?>

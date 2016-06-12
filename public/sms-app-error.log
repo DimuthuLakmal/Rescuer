@@ -1,0 +1,4 @@
+[12-Jun-2016 05:54:53 UTC] PHP Notice:  Undefined index: tile in C:\wamp\www\Rescuer\public\smsreceiver.php on line 36
+[12-Jun-2016 05:54:53 UTC] PHP Stack trace:
+[12-Jun-2016 05:54:53 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[12-Jun-2016 05:54:53 UTC] PHP   2. sendAlertsByAuthority() C:\wamp\www\Rescuer\public\smsreceiver.php:27

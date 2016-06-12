@@ -148,10 +148,5 @@ class UsersController extends Controller {
         echo json_encode($count[0]->count);
     }
 
-    public function signout() {
-
-        \Auth::logout();
-        return \Illuminate\Support\Facades\Redirect::to('login');
-    }
 
 }

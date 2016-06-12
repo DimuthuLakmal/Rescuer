@@ -11,7 +11,7 @@
 |
 */
 //route for signout
-Route::get('users/signout','UsersController@signout');
+Route::get('auth/logout','Auth\AuthController@logout');
 
 //route for creating users and access user db
 Route::resource('users','UsersController');
@@ -38,6 +38,8 @@ Route::resource('reliefcenter','ReliefCenterController');
 Route::resource('mobilewarnings','MobileWarningController');
 
 Route::resource('mobileforum','MobileQuestionController');
+
+Route::get('smsforum','UsersController@storeSubscribers');
 
 Route::get('mobileuser/username/{username}/password/{password}/repassword/{repassword}/mobile/{mobile}','MobileUserController@store');
 
