@@ -131,7 +131,7 @@ class WarningController extends Controller {
                 $warning->level = Input::get('level');
             $warning->save();
 
-            return \Illuminate\Support\Facades\Redirect::to('warnings/' . $id)->withInput()->withErrors($validator->messages());
+            return \Illuminate\Support\Facades\Redirect::to('warnings/' . $id)->withSuccess('success');
         }
     }
 

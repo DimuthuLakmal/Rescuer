@@ -122,7 +122,7 @@ class ReliefCenterController extends Controller {
             $reliefcenter->current_amount = Input::get('current_amount');
         $reliefcenter->save();
 
-        return \Illuminate\Support\Facades\Redirect::to('reliefcenter/' . $id)->withInput()->withErrors($validator->messages());
+        return \Illuminate\Support\Facades\Redirect::to('reliefcenter/' . $id)->withSuccess('success');
     }
     
     public function getCount(){
