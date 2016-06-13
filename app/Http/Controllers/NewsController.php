@@ -120,7 +120,7 @@ class NewsController extends Controller {
     public function show($id) {
         $news = \App\Models\News::find($id);
         if (\Auth::check()) {
-            return \View::make('\updatenews')->with('news', $news);
+            return \View::make('updatenews')->with('news', $news);
         } else {
             return \View::make('login');
         }

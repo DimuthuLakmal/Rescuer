@@ -209,7 +209,7 @@
         <script>
             jQuery.ajax({
                 type: "GET",
-                url: 'http://localhost/notificationusers',
+                url: 'http://titansmora.org/notificationusers',
                 dataType: 'json',
                 success: function (obj, textstatus) {
                     $('#notifitaions').append('<li>' +
@@ -223,7 +223,7 @@
         <script>
             jQuery.ajax({
                 type: "GET",
-                url: 'http://localhost/victimscount',
+                url: 'http://titansmora.org/victimscount',
                 dataType: 'json',
                 success: function (obj, textstatus) {
                     $('#victim_count').text(obj)
@@ -234,7 +234,7 @@
         <script>
             jQuery.ajax({
                 type: "GET",
-                url: 'http://localhost/notificationvictims',
+                url: 'http://titansmora.org/notificationvictims',
                 dataType: 'json',
                 success: function (obj, textstatus) {
                     $('#notifitaions').append('<li>' +
@@ -248,7 +248,7 @@
         <script>
             jQuery.ajax({
                 type: "GET",
-                url: 'http://localhost/reliefcount',
+                url: 'http://titansmora.org/reliefcount',
                 dataType: 'json',
                 success: function (obj, textstatus) {
                     $('#relief_count').text(obj);
@@ -258,7 +258,7 @@
         <script>
             jQuery.ajax({
                                     type: "GET",
-                                            url: 'http://localhost/notificationforum',
+                                            url: 'http://titansmora.org/notificationforum',
                     dataType: 'json',
                                             success: function (obj, textstatus) {
                                                     $('#forum_count').html("&nbsp;&nbsp;You have  " + obj.length + " forum questions");                             $('#forum_count_min').text(obj.length);
@@ -283,7 +283,7 @@
         <script>
                                                     jQuery.ajax({
                                                     type: "GET",
-                                                            url: 'http://localhost/notificationprewarnings',
+                                                            url: 'http://titansmora.org/notificationprewarnings',
                                                             dataType: 'json',
                                                             success: function (obj, textstatus) {
                                                             var countDanger = 0;

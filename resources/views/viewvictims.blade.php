@@ -416,7 +416,7 @@ $.ajaxSetup({
         var element = $(this);
         jQuery.ajax({
             type: "POST",
-            url: 'http://localhost/victims/' + victim_id + '?_method=PUT',
+            url: 'http://titansmora.org/victims/' + victim_id + '?_method=PUT',
             dataType: 'json',
             data: {action: '1'},
             success: function (obj, textstatus) {
@@ -445,7 +445,7 @@ $.ajaxSetup({
         var element = $(this);
         jQuery.ajax({
             type: "POST",
-            url: 'http://localhost/victims/' + victim_id + '?_method=PUT',
+            url: 'http://titansmora.org/victims/' + victim_id + '?_method=PUT',
             dataType: 'json',
             data: {action: '0'},
             success: function (obj, textstatus) {
