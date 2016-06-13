@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Rescuer | Update News</title>
+        <title>Rescuer | Update Relief Center</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.5 -->
@@ -32,20 +32,6 @@
         <!-- bootstrap wysihtml5 - text editor -->
         <link rel="stylesheet" href="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
-        <script type="text/javascript" src="/scripts/tinymce.min.js"></script>
-        <script type="text/javascript">
-            tinymce.init({
-                selector: "#editor_news",
-                plugins: [
-                    "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen",
-                    "insertdatetime media table contextmenu paste "
-                ],
-                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter      alignright alignjustify | bullist numlist outdent indent | link image"
-            });
-
-        </script>
-
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -53,8 +39,88 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
+    <style>
+        #map {
+            width: 1085px;
+            height: 500px;
+        }
+    </style>
 
     <body class="hold-transition skin-blue sidebar-mini">
+
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+
+        <script>
+            var global_map;
+            var global_marker = null;
+            function initialize() {
+                var latitude = $('#lat').val();
+                var longitude = $('#lan').val();
+                geocoder = new google.maps.Geocoder();
+                var mapCanvas = document.getElementById('map');
+                var mapOptions = {
+                    center: new google.maps.LatLng(6.990410, 81.056614),
+                    zoom: 9,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                }
+                var map = new google.maps.Map(mapCanvas, mapOptions);
+                global_map = map;
+                global_marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(latitude, longitude),
+                    map: global_map, // handle of the map 
+                    draggable: true
+                });
+                google.maps.event.addListener(global_marker, 'dragend', function () {
+                    geocodePosition(global_marker.getPosition());
+                });
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+
+
+        <script type="text/javascript">
+            google.maps.event.addDomListener(window, 'load', function () {
+                var places = new google.maps.places.Autocomplete(document.getElementById('txtPlaces'));
+                google.maps.event.addListener(places, 'place_changed', function () {
+                    var place = places.getPlace();
+                    var address = place.formatted_address;
+                    var latitude = place.geometry.location.lat();
+                    var longitude = place.geometry.location.lng();
+                    var mesg = "Address: " + address;
+                    mesg += "\nLatitude: " + latitude;
+                    mesg += "\nLongitude: " + longitude;
+                    $('#lat').val(latitude);
+                    $('#lan').val(longitude);
+
+                    if (global_marker != null) {
+                        global_marker.setMap(null);
+                    }
+
+                    global_marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(latitude, longitude),
+                        map: global_map, // handle of the map 
+                        draggable: true
+                    });
+                    google.maps.event.addListener(global_marker, 'dragend', function () {
+                        geocodePosition(global_marker.getPosition());
+                    });
+                });
+            });
+            function geocodePosition(pos) {
+                geocoder.geocode({
+                    latLng: pos
+                }, function (responses) {
+                    if (responses && responses.length > 0) {
+                        $('#lat').val(pos.lat());
+                        $('#lan').val(pos.lng());
+                        $('#txtPlaces').val(responses[0].formatted_address);
+                        updateMarkerAddress(responses[0].formatted_address);
+                    } else {
+                        updateMarkerAddress('Cannot determine address at this location.');
+                    }
+                });
+            }
+        </script>
 
         <div class="wrapper">
 
@@ -277,7 +343,6 @@
                                             @if(Auth::check())
                                             {{Auth::user()->username}}
                                             @endif
-                                            <small>Member since Nov. 2012</small>
                                         </p>
                                     </li>
                                     <!-- Menu Body -->
@@ -342,7 +407,7 @@
                         <li class="header">MAIN NAVIGATION</li>
                         <li class="active treeview">
                             <a href="#">
-                                <i class="fa fa-dashboard"></i> <span>WARNINGS</span> <i class="fa fa-angle-left pull-right"></i>
+                                <i class="fa fa-dashboard"></i> <span>RELIEF CENTER</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
                                 <li class="active"><a href="/addwarnings"><i class="fa fa-circle-o"></i> New Warning</a></li>
@@ -411,32 +476,39 @@
 
                     <div class="box box-info">
                         <div class="box-header with-border">
-                            <h3 class="box-title">News/Notification Details</h3>
+                            <h3 class="box-title">Relief Center Details</h3>
                         </div><!-- /.box-header -->
-                        <br>
-                        @if($news->type=='News')
-                        <form action="{{'/news/'.$news->id}}" method="POST" class='form-horizontal'>
-                            <input type="hidden" value="{{Auth::user()->id}}" name="user_id" id="user_id_news">
-                            <input type="hidden" value="News" name="type" id="type">
-                            <div class="form-group">
-                                <label  class="col-sm-2 control-label">Title</label>
-                                <div class="col-sm-8">
-                                    <input  class="form-control" name="title" id="title_news" placeholder="Enter the title" value="<?php echo $news->title ?>">
+                        <!-- form start -->
+                        <form class="form-horizontal" action="{{'/reliefcenter/'.$reliefcenter->id}}" method="POST">
+                            <input type="hidden" name="lat" id="lat" value="<?php echo $reliefcenter->lat ?>">
+                            <input type="hidden" name="lan" id="lan" value="<?php echo $reliefcenter->lan ?>">
+                            <input type="hidden" name="functionname" value="add">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Place</label>
+                                    <div class="col-sm-10">                                                                                      
+                                        <input type="text" class="form-control" id="txtPlaces" name="address" value="<?php echo $reliefcenter->address ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-
-                                <div class="col-sm-8 col-md-offset-2">
-                                    <textarea name="description" id="editor_news" style="width:100%" rows="15"><?php echo $news->description ?></textarea>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Capacity</label>
+                                    <div class="col-sm-10">                                                                                      
+                                        <input type="text" class="form-control" id="capacity" name="capacity" value="<?php echo $reliefcenter->capacity ?>">
+                                    </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Current Amount</label>
+                                    <div class="col-sm-10">                                                                                      
+                                        <input type="text" class="form-control" id="current_amount" name="current_amount" value="<?php echo $reliefcenter->current_amount ?>">
+                                    </div>
+                                </div>
+                                <input name="_method" type="hidden" value="PUT">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            </div><!-- /.box-body -->
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-info pull-right">Update Details</button>
                             </div>
-                            <input name="_method" type="hidden" value="PUT">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <div class="form-group">
-
-                                <button class="btn btn-primary" style="color: white;display:block; margin: 0 auto;" id="post_news">Update</button>
-
-                            </div>
+                            <a class="btn btn-default" style="color: #a07cbc;display: none" id="modalBtn" href="#modal"><strong>Successfully insterted</strong></a>
                             <?php if (!empty($errors) && count($errors) > 0) { ?>
                                 <div class="alert alert-danger alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -445,46 +517,20 @@
                                     <p>{{$error}}</p>
                                     @endforeach
                                 </div>
-                            <?php } ?> 
+                            <?php } ?>
                         </form>
-                        @else
-                        <form action="{{'/news/'.$news->id}}" method="POST" class='form-horizontal'>
-                            <input type="hidden" value="{{Auth::user()->id}}" name="user_id" id="user_id_news">
-                            <input type="hidden" value="News" name="type" id="type">
-                            <div class="form-group">
-                                <label  class="col-sm-2 control-label">Title</label>
-                                <div class="col-sm-8">
-                                    <input  class="form-control" name="title" id="title_news" placeholder="Enter the title" value="<?php echo $news->title ?>">
-                                </div>
-                            </div>
-                            <div class="form-group">
-
-                                <div class="col-sm-8 col-md-offset-2">
-                                    <textarea name="description" style="width:100%" rows="10"><?php echo $news->description ?></textarea>
-                                </div>
-                            </div>
-                            <input name="_method" type="hidden" value="PUT">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            
-                            <div class="form-group">
-
-                                <button class="btn btn-primary" style="color: white;display:block; margin: 0 auto;" id="post_news">Update</button>
-
-                            </div>
-                            <?php if (!empty($errors) && count($errors) > 0) { ?>
-                                <div class="alert alert-danger alert-dismissable">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                    <h4><i class="icon fa fa-ban"></i> Invalid details. Please recheck inputs & try again!</h4>
-                                    @foreach($errors-> all() as $error)
-                                    <p>{{$error}}</p>
-                                    @endforeach
-                                </div>
-                            <?php } ?> 
-                        </form>
-                        @endif
-                        <a class="btn btn-default" style="color: #a07cbc;display: none" id="modalBtn" href="#modal"><strong>Successfully updated</strong></a>
-                        <br>
                     </div><!-- /.box -->
+
+                    <div class="box box-danger">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Warning Map</h3>
+                        </div><!-- /.box-header -->
+                        <!-- form start -->
+                        <div id="map">
+
+                        </div>
+                    </div><!-- /.box -->
+
 
                 </section><!-- /.content -->
             </div><!-- /.content-wrapper -->
@@ -533,30 +579,6 @@
         <script src="/plugins/fastclick/fastclick.min.js"></script>
         <!-- AdminLTE App -->
         <script src="/dist/js/app.min.js"></script>
-
-<!--        <script>
-            $('#post_news').click(function (e) {
-                e.preventDefault();
-                var content = tinymce.get("editor_news").getContent();
-                //var content = 'aaaaa';
-                var title = $('#title_news').val();
-                var user_id = $('#user_id_news').val();
-                
-                jQuery.ajax({
-                    type: "POST",
-                    dataType: 'json',
-                    url: 'http://localhost/news/user_id/' + user_id + '/title/' + title + '/description/' + content,
-                    success: function (obj, textstatus) {
-                        if (obj == 'Success') {
-                            $('#modalBtn').get(0).click();
-                        }
-                    }
-                });
-
-
-            });
-        </script>-->
-
         <script>
             $('[data-remodal-id=modal2]').remodal({
                 modifier: 'with-red-theme'
@@ -572,7 +594,6 @@
             <?php
         }
         ?>
-
 
     </body>
 </html>
