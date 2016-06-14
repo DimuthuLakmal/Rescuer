@@ -6,12 +6,24 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\Question as Question;
 
+/**
+ * 
+ * This controller class used to store and retrieve questions of mobile users in forum. Data will be saved to questions table.
+ * 
+ * @see \App\Models\Question
+ * @see \Illuminate\Routing\Controller
+ * 
+ * @author Dimuthu <kjtdimuthu@gmail.com>
+ * 
+ * @copyright (c) 2016, Titans
+ */
+
 class MobileQuestionController extends Controller {
 
     /**
-     * Display a listing of the resource.
+     * Return json array containing questions and answers to mobile application
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index() {
         $result = array();
@@ -39,19 +51,12 @@ class MobileQuestionController extends Controller {
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create() {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  string $description
+     * @param int $user_id ID of user who asked the question
+     * @param string $type Type of the question(Flood\Wild Fire etc.)
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store($description,$user_id,$type) {
         $data = array('user_id' => $user_id, 'description' => $description, 'type' => $type);
@@ -73,45 +78,5 @@ class MobileQuestionController extends Controller {
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id) {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id) {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id) {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id) {
-        //
-    }
 
 }

@@ -7,13 +7,27 @@ use App\Http\Requests;
 use App\Models\GeneralUser as GeneralUser;
 use Illuminate\Support\Facades\Input;
 
+/**
+ * 
+ * This controller class used to store and retrieve loing details and user account details of mobile users.
+ * 
+ * @see \App\User
+ * @see \Illuminate\Routing\Controller
+ * 
+ * @author Dimuthu <kjtdimuthu@gmail.com>
+ * 
+ * @copyright (c) 2016, Titans
+ */
 class MobileUserController extends Controller {
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created mobile user in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  string $username
+     * @param string $password
+     * @param string repassword
+     * @param string mobile
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store($username, $password, $repassword, $mobile) {
         $data = array('username' => $username, 'password' => $password, 'repassword' => $repassword, 'mobile' => $mobile);
@@ -37,6 +51,14 @@ class MobileUserController extends Controller {
         }
     }
 
+    /**
+     * Used for authenticate mobile users
+     *
+     * @param  string $username
+     * @param string $password
+     * 
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function checklogin($username, $password) {
         $user = \DB::table('app_users')
                 ->select('id', 'password')
@@ -46,18 +68,11 @@ class MobileUserController extends Controller {
             if (\Hash::check($password, $u->password)) {
                 echo $_GET['callback'] . "(" . json_encode("Success") . ")";
                 break;
-            }else{
+            } else {
                 echo $_GET['callback'] . "(" . json_encode("Fail") . ")";
                 break;
             }
         }
-//        if (\Hash::check($user->password, $password)) {
-//            echo 'A';
-//        }
-//        if (Hash::check('secret', $hashedPassword))
-//{
-//    // The passwords match...
-//}
     }
 
 }

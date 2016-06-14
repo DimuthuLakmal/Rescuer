@@ -5,6 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
+/**
+ * 
+ * This controller class is used for handle answers table in db. Basically used for store data in db.
+ * 
+ * @author Dimuthu <kjtdimuthu@gmail.com>
+ * 
+ * @copyright (c) 2016, Titans
+ */
+
 class AnswerController extends Controller {
 
     /**

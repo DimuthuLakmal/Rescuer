@@ -27,9 +27,9 @@ if (isset($_GET['q_id'])) {
 
 function sendAnswer($con, $logger, $q_id, $description) {
     try {
-        $number_list = getSubscribers($con);
+        $number_list = array('AZ110yxGccw0krCCE8/xKs5vjwMc06wDsg2cCqXtNoet7PpLXLtO5bQcoL19krKaTE+Yh');
 
-        $reply = $_GET['description'];
+        $reply = "rescuerdm".' '.$_GET['description'];
 
         // Creating a receiver and intialze it with the incomming data
         $receiver = new SMSReceiver(file_get_contents('php://input'));

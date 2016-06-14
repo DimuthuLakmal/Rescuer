@@ -7,11 +7,23 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use Session;
 
+/**
+ * 
+ * This controller class to route to main interfaces.
+ * 
+ * @author Dimuthu <kjtdimuthu@gmail.com>
+ * 
+ * @copyright (c) 2016, Titans
+ */
+
 class HomeController extends Controller {
 
-//    public function __construct() {
-//        $this->middleware('auth.basic', ['only' => ['getIndex']]);
-//    }
+
+    /**
+     * Used to route "/index" after authentication
+     * 
+     * @return \Illuminate\View
+     */
     public function getIndex() {
         if (\Auth::check() && \Auth::user()->accepted==1) {
             return \View::make('index');
@@ -20,10 +32,20 @@ class HomeController extends Controller {
         }
     }
 
+    /**
+     * route for login interface
+     * 
+     * @return \Illuminate\View
+     */
     public function getLogin() {
         return \View::make('login');
     }
 
+    /**
+     * route for authentication
+     * 
+     * @return \Illuminate\View
+     */
     public function postLogin() {
         $creds = array('username' => Input::get('username'), 'password' => Input::get('password'));
         if (\Auth::attempt($creds)) {
@@ -33,7 +55,11 @@ class HomeController extends Controller {
         }
     }
 
-    //Add Warnings Page route
+    /**
+     * Add Warnings Page route
+     * 
+     * @return \Illuminate\View
+     */
     public function getAddwarnings() {
         if (\Auth::check() && \Auth::user()->accepted==1) {
             return \View::make('addwarnings');
@@ -42,7 +68,11 @@ class HomeController extends Controller {
         }
     }
     
-    //Add Rescue Centers Page route
+    /**
+     * Add Rescue Centers Page route
+     * 
+     * @return \Illuminate\View
+     */
     public function getAddrescuecenters() {
         if (\Auth::check() && \Auth::user()->accepted==1) {
             return \View::make('addrescuecenters');
@@ -51,7 +81,11 @@ class HomeController extends Controller {
         }
     }
 
-    //Add ReliefCenter Page route
+    /**
+     * Add ReliefCenter Page route
+     * 
+     * @return \Illuminate\View
+     */
     public function getAddreliefcenter() {
         if (\Auth::check() && \Auth::user()->accepted==1) {
             return \View::make('addreliefcenter');
@@ -60,7 +94,11 @@ class HomeController extends Controller {
         }
     }
 
-    //View Warning Page route
+    /**
+     * View Warning Page route
+     * 
+     * @return \Illuminate\View
+     */
     public function getViewwarnings() {
         if (\Auth::check() && \Auth::user()->accepted==1) {
             return redirect('warnings');
@@ -69,7 +107,11 @@ class HomeController extends Controller {
         }
     }
 
-    //Update Warning Page route
+    /**
+     * Update Warning Page route
+     * 
+     * @return \Illuminate\View
+     */
     public function getUpdatewarnings() {
         if (\Auth::check() && \Auth::user()->accepted==1) {
 
@@ -79,7 +121,11 @@ class HomeController extends Controller {
         }
     }
     
-    //Update Add news route
+    /**
+     * Update Add news route
+     * 
+     * @return \Illuminate\View
+     */
     public function getAddnews() {
         return \View::make('addnews');
         if (\Auth::check()) {
