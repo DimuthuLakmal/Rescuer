@@ -18,6 +18,7 @@ class QuestionController extends Controller {
             $questions = \DB::table('questions')
                     ->join('app_users', 'app_users.id', '=', 'questions.user_id')
                     ->select('app_users.username', 'questions.id', 'questions.description', 'questions.type')
+                    ->where('questions.type','!=','SMS')
                     ->get();
             foreach ($questions as $question) {
                 $replies_by_authority = \DB::table('answers')
@@ -34,6 +35,22 @@ class QuestionController extends Controller {
                         ->get();
                 $result[] = array_merge((array) $question, $replies_by_app_users, $replies_by_authority);
             }
+            
+            $questions = \DB::table('questions')
+                    ->join('subscribers', 'subscribers.id', '=', 'questions.user_id')
+                    ->select('subscribers.tag_number', 'questions.id', 'questions.description', 'questions.type')
+                    ->where('questions.type','=','SMS')
+                    ->get();
+            foreach ($questions as $question) {
+                $replies_by_authority = \DB::table('answers')
+                        ->join('general_users', 'answers.user_id', '=', 'general_users.id')
+                        ->join('users', 'general_users.id', '=', 'users.id')
+                        ->select('answers.id', 'answers.q_id', 'answers.user_id', 'answers.description', 'users.username')
+                        ->where('answers.q_id', $question->id)
+                        ->get();
+                $result[] = array_merge((array) $question, $replies_by_authority);
+            }
+
             //var_dump($result);
             return \View::make('forum')->withResult($result);
         } else {
@@ -100,9 +117,9 @@ class QuestionController extends Controller {
     public function destroy($id) {
         //
     }
-    
-    public function getNotification(){
-        
+
+    public function getNotification() {
+
         $forumnotification = \Illuminate\Support\Facades\DB::select('SELECT u.username,q.description FROM answers a right join questions q on a.q_id=q. id left join app_users u on q.user_id=u.id where a.description is null');
         echo json_encode($forumnotification);
     }

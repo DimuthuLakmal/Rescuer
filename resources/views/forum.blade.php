@@ -62,7 +62,8 @@
         <ul class="nav nav-tabs">
             <li class="active"><a href="#tab_1" data-toggle="tab">Land Slide</a></li>
             <li><a href="#tab_2" data-toggle="tab">Wild Fire</a></li>
-            <li><a href="#tab_3" data-toggle="tab">SMS</a></li>
+            <li><a href="#tab_3" data-toggle="tab">Flood</a></li>
+            <li><a href="#tab_4" data-toggle="tab">SMS</a></li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="tab_1">
@@ -116,7 +117,7 @@
             <div class="tab-pane" id="tab_2">
 
                 @foreach($result as $question)
-                @if($question['type']=='Flood')
+                @if($question['type']=='Wild Fire')
                 <!-- Box Comment -->
                 <div class="box box-widget">
                     <div class='box-header with-border'>
@@ -165,12 +166,13 @@
             </div><!-- /.tab-pane -->
             <div class="tab-pane" id="tab_3">
 
-
+                @foreach($result as $question)
+                @if($question['type']=='Flood')
                 <!-- Box Comment -->
                 <div class="box box-widget">
                     <div class='box-header with-border'>
                         <div class='user-block'>
-                            <span class='username'><a href="#">tag_number
+                            <span class='username'><a href="#">{{ $question['username'] }}
                                 </a></span>
                         </div><!-- /.user-block -->
                         <div class='box-tools'>
@@ -180,22 +182,87 @@
                         </div><!-- /.box-tools -->
                     </div><!-- /.box-header -->
                     <div class='box-body'>
-                        <p>description</p></div>                         
-                    <div class='box-footer box-comments allcomments' id="tag_number">
+                        <p>{{ $question['description'] }}</p></div>
+                    <div class='box-footer box-comments allcomments' id="{{ $question['id'] }}">
+                        <?php for ($i = 0; $i < count($question) - 4; $i++) { ?>
+                            <div class='box-comment'>
+                                <!-- User image -->
 
-                    </div>        
+                                <div class='comment-text'>
+                                    <span class="username">
+                                        <?php echo $question[(string) $i]->username ?>                                    
+                                    </span><!-- /.username -->
+                                    <?php
+                                    echo $question[(string) $i]->description;
+                                    ?>
+                                </div><!-- /.comment-text -->
+                            </div><!-- /.box-comment -->
+                        <?php } ?>
+                    </div><!-- /.box-footer -->
+
                     <div class="box-footer">
                         <form action="#" method="post">                                               
                             <!-- .img-push is used to add margin to elements next to floating images -->
+                            <div class="img-push">
+                                <input type="hidden" value="<?php echo $question['id'] . '%' . Auth::user()->username . '%' . Auth::user()->id ?>" name="<?php echo $question['id'] ?>">
+                                <input type="text" class="form-control input-sm post_comment" placeholder="Press enter to post comment">                                                             
+                            </div>
+                        </form>
+                    </div><!-- /.box-footer -->
+                </div><!-- /.box -->
+                @endif
+                @endforeach
+            </div><!-- /.tab-pane -->
+
+            <div class="tab-pane" id="tab_4">
+
+                @foreach($result as $question)
+                @if($question['type']=='SMS')
+                <!-- Box Comment -->
+                <div class="box box-widget">
+                    <div class='box-header with-border'>
+                        <div class='user-block'>
+                            <span class='username'><a href="#">{{ $question['tag_number'] }}
+                                </a></span>
+                        </div><!-- /.user-block -->
+                        <div class='box-tools'>
+                            <button class='btn btn-box-tool' data-toggle='tooltip' title='Mark as read'><i class='fa fa-circle-o'></i></button>
+                            <button class='btn btn-box-tool' data-widget='collapse'><i class='fa fa-minus'></i></button>
+                            <button class='btn btn-box-tool' data-widget='remove'><i class='fa fa-times'></i></button>
+                        </div><!-- /.box-tools -->
+                    </div><!-- /.box-header -->
+                    <div class='box-body'>
+                        <p>{{ $question['description'] }}</p></div>
+                    <div class='box-footer box-comments allcomments' id="{{ $question['id'] }}">
+                        <?php for ($i = 0; $i < count($question) - 4; $i++) { ?>
+                            <div class='box-comment'>
+                                <!-- User image -->
+
+                                <div class='comment-text'>
+                                    <span class="username">
+                                        <?php echo $question[(string) $i]->username ?>                                    
+                                    </span><!-- /.username -->
+                                    <?php
+                                    echo $question[(string) $i]->description;
+                                    ?>
+                                </div><!-- /.comment-text -->
+                            </div><!-- /.box-comment -->
+                        <?php } ?>
+                    </div><!-- /.box-footer -->  
+                    <div class="box-footer">
+                        <form action="#" method="GET">                                               
+                            <!-- .img-push is used to add margin to elements next to floating images -->
                             <div class="img-push"> 
-                                <input type="hidden" value="tag_number" name="tag_number">
+                                <input type="hidden" value="<?php echo $question['id'] . '%' . Auth::user()->username . '%' . Auth::user()->id ?>" name="<?php echo $question['id'] ?>">
                                 <input type="text" class="form-control input-sm post_comment_sms" placeholder="Press enter to post comment">                                                             
                             </div>
                         </form>
                     </div><!-- /.box-footer -->
                 </div><!-- /.box --> 
-
+                @endif
+                @endforeach
             </div><!-- /.tab-pane -->
+
         </div><!-- /.tab-content -->
     </div>
 
@@ -263,20 +330,24 @@ $('.post_comment').keypress(function (e) {
 <script>
     $('.post_comment_sms').keypress(function (e) {
         if (e.which == 13) {
-
+            alert('A');
             e.preventDefault();
             var comment = $(this).val();
-            //alert(comment);
             //var details = $(this).prev().val();
-
-            jQuery.ajax({
-                type: "GET",
-                url: 'http://titansmora.com/rescuer/smsreceiver.php?reply=' + comment,
-                dataType: 'json',
-                success: function (obj, textstatus) {
-
-                }
-            });
+            if (comment != "") {
+                //alert(comment);
+                var details = $(this).prev().val().split("%");
+                var _token = '<?php echo csrf_token() ?>';
+                jQuery.ajax({
+                    type: "GET",
+                    url: 'http://titansmora.org/smsreceiver.php?q_id='+details[0]+'&user_id='+details[2]+'&description='+comment,
+                    success: function (obj, textstatus) {
+                        $('#' + (details[0])).append('<div class=\'box-comment\'><div class=\'comment-text\'><span class=\'username\'>' + details[1] + '</span>' + comment + '<\div><\div>');
+                    }
+                });
+            } else {
+                alert("Please enter your comment");
+            }
 
             //$('#' + (details)).append('<div class=\'box-comment\'><div class=\'comment-text\'>' + comment + '<\div><\div>');
 

@@ -2,3 +2,347 @@
 [12-Jun-2016 05:54:53 UTC] PHP Stack trace:
 [12-Jun-2016 05:54:53 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
 [12-Jun-2016 05:54:53 UTC] PHP   2. sendAlertsByAuthority() C:\wamp\www\Rescuer\public\smsreceiver.php:27
+[14-Jun-2016 12:56:48 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'dimuthu'@'localhost' (using password: YES) in C:\wamp\www\Rescuer\public\connection.php on line 2
+[14-Jun-2016 12:56:48 UTC] PHP Stack trace:
+[14-Jun-2016 12:56:48 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 12:56:48 UTC] PHP   2. include() C:\wamp\www\Rescuer\public\smsreceiver.php:15
+[14-Jun-2016 12:56:48 UTC] PHP   3. mysqli_connect() C:\wamp\www\Rescuer\public\connection.php:2
+[14-Jun-2016 18:26:48 Asia/Colombo] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\wamp\www\Rescuer\public\smsreceiver.php on line 88
+[14-Jun-2016 18:26:48 Asia/Colombo] PHP Stack trace:
+[14-Jun-2016 18:26:48 Asia/Colombo] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 18:26:48 Asia/Colombo] PHP   2. sendAlertsByUsers() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 18:26:48 Asia/Colombo] PHP   3. mysqli_query() C:\wamp\www\Rescuer\public\smsreceiver.php:88
+[14-Jun-2016 18:26:48 Asia/Colombo] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\wamp\www\Rescuer\public\smsreceiver.php on line 97
+[14-Jun-2016 18:26:48 Asia/Colombo] PHP Stack trace:
+[14-Jun-2016 18:26:48 Asia/Colombo] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 18:26:48 Asia/Colombo] PHP   2. sendAlertsByUsers() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 18:26:48 Asia/Colombo] PHP   3. mysqli_query() C:\wamp\www\Rescuer\public\smsreceiver.php:97
+[14-Jun-2016 12:57:02 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'dimuthu'@'localhost' (using password: YES) in C:\wamp\www\Rescuer\public\connection.php on line 2
+[14-Jun-2016 12:57:02 UTC] PHP Stack trace:
+[14-Jun-2016 12:57:02 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 12:57:02 UTC] PHP   2. include() C:\wamp\www\Rescuer\public\smsreceiver.php:15
+[14-Jun-2016 12:57:02 UTC] PHP   3. mysqli_connect() C:\wamp\www\Rescuer\public\connection.php:2
+[14-Jun-2016 18:27:02 Asia/Colombo] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\wamp\www\Rescuer\public\smsreceiver.php on line 88
+[14-Jun-2016 18:27:02 Asia/Colombo] PHP Stack trace:
+[14-Jun-2016 18:27:02 Asia/Colombo] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 18:27:02 Asia/Colombo] PHP   2. sendAlertsByUsers() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 18:27:02 Asia/Colombo] PHP   3. mysqli_query() C:\wamp\www\Rescuer\public\smsreceiver.php:88
+[14-Jun-2016 18:27:02 Asia/Colombo] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\wamp\www\Rescuer\public\smsreceiver.php on line 97
+[14-Jun-2016 18:27:02 Asia/Colombo] PHP Stack trace:
+[14-Jun-2016 18:27:02 Asia/Colombo] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 18:27:02 Asia/Colombo] PHP   2. sendAlertsByUsers() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 18:27:02 Asia/Colombo] PHP   3. mysqli_query() C:\wamp\www\Rescuer\public\smsreceiver.php:97
+[14-Jun-2016 13:18:54 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'dimuthu'@'localhost' (using password: YES) in C:\wamp\www\Rescuer\public\connection.php on line 2
+[14-Jun-2016 13:18:54 UTC] PHP Stack trace:
+[14-Jun-2016 13:18:54 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:18:54 UTC] PHP   2. include() C:\wamp\www\Rescuer\public\smsreceiver.php:15
+[14-Jun-2016 13:18:54 UTC] PHP   3. mysqli_connect() C:\wamp\www\Rescuer\public\connection.php:2
+[14-Jun-2016 13:18:54 UTC] PHP Notice:  Undefined variable: sql in C:\wamp\www\Rescuer\public\smsreceiver.php on line 208
+[14-Jun-2016 13:18:54 UTC] PHP Stack trace:
+[14-Jun-2016 13:18:54 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:18:54 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:30
+[14-Jun-2016 13:18:54 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:179
+[14-Jun-2016 13:18:54 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\wamp\www\Rescuer\public\smsreceiver.php on line 208
+[14-Jun-2016 13:18:54 UTC] PHP Stack trace:
+[14-Jun-2016 13:18:54 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:18:54 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:30
+[14-Jun-2016 13:18:54 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:179
+[14-Jun-2016 13:18:54 UTC] PHP   4. mysqli_query() C:\wamp\www\Rescuer\public\smsreceiver.php:208
+[14-Jun-2016 13:18:54 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\Rescuer\public\smsreceiver.php:208) in C:\wamp\www\Rescuer\public\lib\SMSReceiver.php on line 46
+[14-Jun-2016 13:18:54 UTC] PHP Stack trace:
+[14-Jun-2016 13:18:54 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:18:54 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:30
+[14-Jun-2016 13:18:54 UTC] PHP   3. SMSReceiver->__construct() C:\wamp\www\Rescuer\public\smsreceiver.php:185
+[14-Jun-2016 13:18:54 UTC] PHP   4. header() C:\wamp\www\Rescuer\public\lib\SMSReceiver.php:46
+[14-Jun-2016 13:18:54 UTC] PHP Notice:  Undefined offset: 0 in C:\wamp\www\Rescuer\public\smsreceiver.php on line 191
+[14-Jun-2016 13:18:54 UTC] PHP Stack trace:
+[14-Jun-2016 13:18:54 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:18:54 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:30
+[14-Jun-2016 13:25:28 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'dimuthu'@'localhost' (using password: YES) in C:\wamp\www\Rescuer\public\connection.php on line 2
+[14-Jun-2016 13:25:28 UTC] PHP Stack trace:
+[14-Jun-2016 13:25:28 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:25:28 UTC] PHP   2. include() C:\wamp\www\Rescuer\public\smsreceiver.php:15
+[14-Jun-2016 13:25:28 UTC] PHP   3. mysqli_connect() C:\wamp\www\Rescuer\public\connection.php:2
+[14-Jun-2016 13:25:28 UTC] PHP Notice:  Undefined variable: sql in C:\wamp\www\Rescuer\public\smsreceiver.php on line 208
+[14-Jun-2016 13:25:28 UTC] PHP Stack trace:
+[14-Jun-2016 13:25:28 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:25:28 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:30
+[14-Jun-2016 13:25:28 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:179
+[14-Jun-2016 13:25:28 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\wamp\www\Rescuer\public\smsreceiver.php on line 208
+[14-Jun-2016 13:25:28 UTC] PHP Stack trace:
+[14-Jun-2016 13:25:28 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:25:28 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:30
+[14-Jun-2016 13:25:28 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:179
+[14-Jun-2016 13:25:28 UTC] PHP   4. mysqli_query() C:\wamp\www\Rescuer\public\smsreceiver.php:208
+[14-Jun-2016 13:25:28 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\Rescuer\public\smsreceiver.php:208) in C:\wamp\www\Rescuer\public\lib\SMSReceiver.php on line 46
+[14-Jun-2016 13:25:28 UTC] PHP Stack trace:
+[14-Jun-2016 13:25:28 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:25:28 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:30
+[14-Jun-2016 13:25:28 UTC] PHP   3. SMSReceiver->__construct() C:\wamp\www\Rescuer\public\smsreceiver.php:185
+[14-Jun-2016 13:25:28 UTC] PHP   4. header() C:\wamp\www\Rescuer\public\lib\SMSReceiver.php:46
+[14-Jun-2016 13:25:28 UTC] PHP Notice:  Undefined offset: 0 in C:\wamp\www\Rescuer\public\smsreceiver.php on line 191
+[14-Jun-2016 13:25:28 UTC] PHP Stack trace:
+[14-Jun-2016 13:25:28 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:25:28 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:30
+[14-Jun-2016 13:30:49 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'dimuthu'@'localhost' (using password: YES) in C:\wamp\www\Rescuer\public\connection.php on line 2
+[14-Jun-2016 13:30:49 UTC] PHP Stack trace:
+[14-Jun-2016 13:30:49 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:30:49 UTC] PHP   2. include() C:\wamp\www\Rescuer\public\smsreceiver.php:15
+[14-Jun-2016 13:30:49 UTC] PHP   3. mysqli_connect() C:\wamp\www\Rescuer\public\connection.php:2
+[14-Jun-2016 13:30:49 UTC] PHP Notice:  Undefined variable: sql in C:\wamp\www\Rescuer\public\smsreceiver.php on line 208
+[14-Jun-2016 13:30:49 UTC] PHP Stack trace:
+[14-Jun-2016 13:30:49 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:30:49 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:30
+[14-Jun-2016 13:30:49 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:179
+[14-Jun-2016 13:30:49 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\wamp\www\Rescuer\public\smsreceiver.php on line 208
+[14-Jun-2016 13:30:49 UTC] PHP Stack trace:
+[14-Jun-2016 13:30:49 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:30:49 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:30
+[14-Jun-2016 13:30:49 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:179
+[14-Jun-2016 13:30:49 UTC] PHP   4. mysqli_query() C:\wamp\www\Rescuer\public\smsreceiver.php:208
+[14-Jun-2016 13:30:49 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\Rescuer\public\smsreceiver.php:208) in C:\wamp\www\Rescuer\public\lib\SMSReceiver.php on line 46
+[14-Jun-2016 13:30:49 UTC] PHP Stack trace:
+[14-Jun-2016 13:30:49 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:30:49 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:30
+[14-Jun-2016 13:30:49 UTC] PHP   3. SMSReceiver->__construct() C:\wamp\www\Rescuer\public\smsreceiver.php:185
+[14-Jun-2016 13:30:49 UTC] PHP   4. header() C:\wamp\www\Rescuer\public\lib\SMSReceiver.php:46
+[14-Jun-2016 13:30:49 UTC] PHP Notice:  Undefined offset: 0 in C:\wamp\www\Rescuer\public\smsreceiver.php on line 191
+[14-Jun-2016 13:30:49 UTC] PHP Stack trace:
+[14-Jun-2016 13:30:49 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:30:49 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:30
+[14-Jun-2016 13:31:29 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'dimuthu'@'localhost' (using password: YES) in C:\wamp\www\Rescuer\public\connection.php on line 2
+[14-Jun-2016 13:31:29 UTC] PHP Stack trace:
+[14-Jun-2016 13:31:29 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:31:29 UTC] PHP   2. include() C:\wamp\www\Rescuer\public\smsreceiver.php:15
+[14-Jun-2016 13:31:29 UTC] PHP   3. mysqli_connect() C:\wamp\www\Rescuer\public\connection.php:2
+[14-Jun-2016 13:31:29 UTC] PHP Notice:  Undefined variable: sql in C:\wamp\www\Rescuer\public\smsreceiver.php on line 208
+[14-Jun-2016 13:31:29 UTC] PHP Stack trace:
+[14-Jun-2016 13:31:29 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:31:29 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:30
+[14-Jun-2016 13:31:29 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:179
+[14-Jun-2016 13:31:29 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\wamp\www\Rescuer\public\smsreceiver.php on line 208
+[14-Jun-2016 13:31:29 UTC] PHP Stack trace:
+[14-Jun-2016 13:31:29 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:31:29 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:30
+[14-Jun-2016 13:31:29 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:179
+[14-Jun-2016 13:31:29 UTC] PHP   4. mysqli_query() C:\wamp\www\Rescuer\public\smsreceiver.php:208
+[14-Jun-2016 13:31:29 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\Rescuer\public\smsreceiver.php:208) in C:\wamp\www\Rescuer\public\lib\SMSReceiver.php on line 46
+[14-Jun-2016 13:31:29 UTC] PHP Stack trace:
+[14-Jun-2016 13:31:29 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:31:29 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:30
+[14-Jun-2016 13:31:29 UTC] PHP   3. SMSReceiver->__construct() C:\wamp\www\Rescuer\public\smsreceiver.php:185
+[14-Jun-2016 13:31:29 UTC] PHP   4. header() C:\wamp\www\Rescuer\public\lib\SMSReceiver.php:46
+[14-Jun-2016 13:31:29 UTC] PHP Notice:  Undefined offset: 0 in C:\wamp\www\Rescuer\public\smsreceiver.php on line 191
+[14-Jun-2016 13:31:29 UTC] PHP Stack trace:
+[14-Jun-2016 13:31:29 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:31:29 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:30
+[14-Jun-2016 13:45:56 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'dimuthu'@'localhost' (using password: YES) in C:\wamp\www\Rescuer\public\connection.php on line 2
+[14-Jun-2016 13:45:56 UTC] PHP Stack trace:
+[14-Jun-2016 13:45:56 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:45:56 UTC] PHP   2. include() C:\wamp\www\Rescuer\public\smsreceiver.php:15
+[14-Jun-2016 13:45:56 UTC] PHP   3. mysqli_connect() C:\wamp\www\Rescuer\public\connection.php:2
+[14-Jun-2016 13:45:56 UTC] PHP Notice:  Undefined variable: sql in C:\wamp\www\Rescuer\public\smsreceiver.php on line 213
+[14-Jun-2016 13:45:56 UTC] PHP Stack trace:
+[14-Jun-2016 13:45:56 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:45:56 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:33
+[14-Jun-2016 13:45:56 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:182
+[14-Jun-2016 13:45:56 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\wamp\www\Rescuer\public\smsreceiver.php on line 213
+[14-Jun-2016 13:45:56 UTC] PHP Stack trace:
+[14-Jun-2016 13:45:56 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:45:56 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:33
+[14-Jun-2016 13:45:56 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:182
+[14-Jun-2016 13:45:56 UTC] PHP   4. mysqli_query() C:\wamp\www\Rescuer\public\smsreceiver.php:213
+[14-Jun-2016 13:45:56 UTC] PHP Notice:  Undefined offset: 0 in C:\wamp\www\Rescuer\public\smsreceiver.php on line 185
+[14-Jun-2016 13:45:56 UTC] PHP Stack trace:
+[14-Jun-2016 13:45:56 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:45:56 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:33
+[14-Jun-2016 13:45:56 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\Rescuer\public\smsreceiver.php:213) in C:\wamp\www\Rescuer\public\lib\SMSReceiver.php on line 46
+[14-Jun-2016 13:45:56 UTC] PHP Stack trace:
+[14-Jun-2016 13:45:56 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 13:45:56 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:33
+[14-Jun-2016 13:45:56 UTC] PHP   3. SMSReceiver->__construct() C:\wamp\www\Rescuer\public\smsreceiver.php:194
+[14-Jun-2016 13:45:56 UTC] PHP   4. header() C:\wamp\www\Rescuer\public\lib\SMSReceiver.php:46
+[14-Jun-2016 14:21:55 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'dimuthu'@'localhost' (using password: YES) in C:\wamp\www\Rescuer\public\connection.php on line 2
+[14-Jun-2016 14:21:55 UTC] PHP Stack trace:
+[14-Jun-2016 14:21:55 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:21:55 UTC] PHP   2. include() C:\wamp\www\Rescuer\public\smsreceiver.php:15
+[14-Jun-2016 14:21:55 UTC] PHP   3. mysqli_connect() C:\wamp\www\Rescuer\public\connection.php:2
+[14-Jun-2016 14:21:55 UTC] PHP Notice:  Undefined variable: sql in C:\wamp\www\Rescuer\public\smsreceiver.php on line 213
+[14-Jun-2016 14:21:55 UTC] PHP Stack trace:
+[14-Jun-2016 14:21:55 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:21:55 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:33
+[14-Jun-2016 14:21:55 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:182
+[14-Jun-2016 14:21:55 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\wamp\www\Rescuer\public\smsreceiver.php on line 213
+[14-Jun-2016 14:21:55 UTC] PHP Stack trace:
+[14-Jun-2016 14:21:55 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:21:55 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:33
+[14-Jun-2016 14:21:55 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:182
+[14-Jun-2016 14:21:55 UTC] PHP   4. mysqli_query() C:\wamp\www\Rescuer\public\smsreceiver.php:213
+[14-Jun-2016 14:21:55 UTC] PHP Notice:  Undefined offset: 0 in C:\wamp\www\Rescuer\public\smsreceiver.php on line 185
+[14-Jun-2016 14:21:55 UTC] PHP Stack trace:
+[14-Jun-2016 14:21:55 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:21:55 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:33
+[14-Jun-2016 14:21:55 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\Rescuer\public\smsreceiver.php:213) in C:\wamp\www\Rescuer\public\lib\SMSReceiver.php on line 46
+[14-Jun-2016 14:21:55 UTC] PHP Stack trace:
+[14-Jun-2016 14:21:55 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:21:55 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:33
+[14-Jun-2016 14:21:55 UTC] PHP   3. SMSReceiver->__construct() C:\wamp\www\Rescuer\public\smsreceiver.php:194
+[14-Jun-2016 14:21:55 UTC] PHP   4. header() C:\wamp\www\Rescuer\public\lib\SMSReceiver.php:46
+[14-Jun-2016 14:22:20 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'dimuthu'@'localhost' (using password: YES) in C:\wamp\www\Rescuer\public\connection.php on line 2
+[14-Jun-2016 14:22:20 UTC] PHP Stack trace:
+[14-Jun-2016 14:22:20 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:22:20 UTC] PHP   2. include() C:\wamp\www\Rescuer\public\smsreceiver.php:15
+[14-Jun-2016 14:22:20 UTC] PHP   3. mysqli_connect() C:\wamp\www\Rescuer\public\connection.php:2
+[14-Jun-2016 14:22:20 UTC] PHP Notice:  Undefined variable: sql in C:\wamp\www\Rescuer\public\smsreceiver.php on line 213
+[14-Jun-2016 14:22:20 UTC] PHP Stack trace:
+[14-Jun-2016 14:22:20 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:22:20 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:33
+[14-Jun-2016 14:22:20 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:182
+[14-Jun-2016 14:22:20 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\wamp\www\Rescuer\public\smsreceiver.php on line 213
+[14-Jun-2016 14:22:20 UTC] PHP Stack trace:
+[14-Jun-2016 14:22:20 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:22:20 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:33
+[14-Jun-2016 14:22:20 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:182
+[14-Jun-2016 14:22:20 UTC] PHP   4. mysqli_query() C:\wamp\www\Rescuer\public\smsreceiver.php:213
+[14-Jun-2016 14:22:20 UTC] PHP Notice:  Undefined offset: 0 in C:\wamp\www\Rescuer\public\smsreceiver.php on line 185
+[14-Jun-2016 14:22:20 UTC] PHP Stack trace:
+[14-Jun-2016 14:22:20 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:22:20 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:33
+[14-Jun-2016 14:22:20 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\Rescuer\public\smsreceiver.php:213) in C:\wamp\www\Rescuer\public\lib\SMSReceiver.php on line 46
+[14-Jun-2016 14:22:20 UTC] PHP Stack trace:
+[14-Jun-2016 14:22:20 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:22:20 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:33
+[14-Jun-2016 14:22:20 UTC] PHP   3. SMSReceiver->__construct() C:\wamp\www\Rescuer\public\smsreceiver.php:194
+[14-Jun-2016 14:22:20 UTC] PHP   4. header() C:\wamp\www\Rescuer\public\lib\SMSReceiver.php:46
+[14-Jun-2016 14:23:22 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'dimuthu'@'localhost' (using password: YES) in C:\wamp\www\Rescuer\public\connection.php on line 2
+[14-Jun-2016 14:23:22 UTC] PHP Stack trace:
+[14-Jun-2016 14:23:22 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:23:22 UTC] PHP   2. include() C:\wamp\www\Rescuer\public\smsreceiver.php:15
+[14-Jun-2016 14:23:22 UTC] PHP   3. mysqli_connect() C:\wamp\www\Rescuer\public\connection.php:2
+[14-Jun-2016 14:23:22 UTC] PHP Notice:  Undefined variable: sql in C:\wamp\www\Rescuer\public\smsreceiver.php on line 213
+[14-Jun-2016 14:23:22 UTC] PHP Stack trace:
+[14-Jun-2016 14:23:22 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:23:22 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:33
+[14-Jun-2016 14:23:22 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:182
+[14-Jun-2016 14:23:22 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\wamp\www\Rescuer\public\smsreceiver.php on line 213
+[14-Jun-2016 14:23:22 UTC] PHP Stack trace:
+[14-Jun-2016 14:23:22 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:23:22 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:33
+[14-Jun-2016 14:23:22 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:182
+[14-Jun-2016 14:23:22 UTC] PHP   4. mysqli_query() C:\wamp\www\Rescuer\public\smsreceiver.php:213
+[14-Jun-2016 14:23:22 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\Rescuer\public\smsreceiver.php:213) in C:\wamp\www\Rescuer\public\lib\SMSReceiver.php on line 46
+[14-Jun-2016 14:23:22 UTC] PHP Stack trace:
+[14-Jun-2016 14:23:22 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:23:22 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:33
+[14-Jun-2016 14:23:22 UTC] PHP   3. SMSReceiver->__construct() C:\wamp\www\Rescuer\public\smsreceiver.php:194
+[14-Jun-2016 14:23:22 UTC] PHP   4. header() C:\wamp\www\Rescuer\public\lib\SMSReceiver.php:46
+[14-Jun-2016 14:25:45 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'dimuthu'@'localhost' (using password: YES) in C:\wamp\www\Rescuer\public\connection.php on line 2
+[14-Jun-2016 14:25:45 UTC] PHP Stack trace:
+[14-Jun-2016 14:25:45 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:25:45 UTC] PHP   2. include() C:\wamp\www\Rescuer\public\smsreceiver.php:15
+[14-Jun-2016 14:25:45 UTC] PHP   3. mysqli_connect() C:\wamp\www\Rescuer\public\connection.php:2
+[14-Jun-2016 14:25:45 UTC] PHP Notice:  Undefined variable: sql in C:\wamp\www\Rescuer\public\smsreceiver.php on line 209
+[14-Jun-2016 14:25:45 UTC] PHP Stack trace:
+[14-Jun-2016 14:25:45 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:25:45 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 14:25:45 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:178
+[14-Jun-2016 14:25:45 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\wamp\www\Rescuer\public\smsreceiver.php on line 209
+[14-Jun-2016 14:25:45 UTC] PHP Stack trace:
+[14-Jun-2016 14:25:45 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:25:45 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 14:25:45 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:178
+[14-Jun-2016 14:25:45 UTC] PHP   4. mysqli_query() C:\wamp\www\Rescuer\public\smsreceiver.php:209
+[14-Jun-2016 14:25:45 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\Rescuer\public\smsreceiver.php:209) in C:\wamp\www\Rescuer\public\lib\SMSReceiver.php on line 46
+[14-Jun-2016 14:25:45 UTC] PHP Stack trace:
+[14-Jun-2016 14:25:45 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:25:45 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 14:25:45 UTC] PHP   3. SMSReceiver->__construct() C:\wamp\www\Rescuer\public\smsreceiver.php:190
+[14-Jun-2016 14:25:45 UTC] PHP   4. header() C:\wamp\www\Rescuer\public\lib\SMSReceiver.php:46
+[14-Jun-2016 14:26:16 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'dimuthu'@'localhost' (using password: YES) in C:\wamp\www\Rescuer\public\connection.php on line 2
+[14-Jun-2016 14:26:16 UTC] PHP Stack trace:
+[14-Jun-2016 14:26:16 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:26:16 UTC] PHP   2. include() C:\wamp\www\Rescuer\public\smsreceiver.php:15
+[14-Jun-2016 14:26:16 UTC] PHP   3. mysqli_connect() C:\wamp\www\Rescuer\public\connection.php:2
+[14-Jun-2016 14:26:16 UTC] PHP Notice:  Undefined variable: sql in C:\wamp\www\Rescuer\public\smsreceiver.php on line 209
+[14-Jun-2016 14:26:16 UTC] PHP Stack trace:
+[14-Jun-2016 14:26:16 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:26:16 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 14:26:16 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:178
+[14-Jun-2016 14:26:16 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\wamp\www\Rescuer\public\smsreceiver.php on line 209
+[14-Jun-2016 14:26:16 UTC] PHP Stack trace:
+[14-Jun-2016 14:26:16 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:26:16 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 14:26:16 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:178
+[14-Jun-2016 14:26:16 UTC] PHP   4. mysqli_query() C:\wamp\www\Rescuer\public\smsreceiver.php:209
+[14-Jun-2016 14:26:16 UTC] PHP Notice:  Array to string conversion in C:\wamp\www\Rescuer\public\smsreceiver.php on line 181
+[14-Jun-2016 14:26:16 UTC] PHP Stack trace:
+[14-Jun-2016 14:26:16 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:26:16 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 14:26:16 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\Rescuer\public\smsreceiver.php:209) in C:\wamp\www\Rescuer\public\lib\SMSReceiver.php on line 46
+[14-Jun-2016 14:26:16 UTC] PHP Stack trace:
+[14-Jun-2016 14:26:16 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:26:16 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 14:26:16 UTC] PHP   3. SMSReceiver->__construct() C:\wamp\www\Rescuer\public\smsreceiver.php:190
+[14-Jun-2016 14:26:16 UTC] PHP   4. header() C:\wamp\www\Rescuer\public\lib\SMSReceiver.php:46
+[14-Jun-2016 14:26:38 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'dimuthu'@'localhost' (using password: YES) in C:\wamp\www\Rescuer\public\connection.php on line 2
+[14-Jun-2016 14:26:38 UTC] PHP Stack trace:
+[14-Jun-2016 14:26:38 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:26:38 UTC] PHP   2. include() C:\wamp\www\Rescuer\public\smsreceiver.php:15
+[14-Jun-2016 14:26:38 UTC] PHP   3. mysqli_connect() C:\wamp\www\Rescuer\public\connection.php:2
+[14-Jun-2016 14:26:38 UTC] PHP Notice:  Undefined variable: sql in C:\wamp\www\Rescuer\public\smsreceiver.php on line 209
+[14-Jun-2016 14:26:38 UTC] PHP Stack trace:
+[14-Jun-2016 14:26:38 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:26:38 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 14:26:38 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:178
+[14-Jun-2016 14:26:38 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\wamp\www\Rescuer\public\smsreceiver.php on line 209
+[14-Jun-2016 14:26:38 UTC] PHP Stack trace:
+[14-Jun-2016 14:26:38 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:26:38 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 14:26:38 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:178
+[14-Jun-2016 14:26:38 UTC] PHP   4. mysqli_query() C:\wamp\www\Rescuer\public\smsreceiver.php:209
+[14-Jun-2016 14:26:38 UTC] PHP Notice:  Undefined offset: 0 in C:\wamp\www\Rescuer\public\smsreceiver.php on line 181
+[14-Jun-2016 14:26:38 UTC] PHP Stack trace:
+[14-Jun-2016 14:26:38 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:26:38 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 14:26:38 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\Rescuer\public\smsreceiver.php:209) in C:\wamp\www\Rescuer\public\lib\SMSReceiver.php on line 46
+[14-Jun-2016 14:26:38 UTC] PHP Stack trace:
+[14-Jun-2016 14:26:38 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:26:38 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 14:26:38 UTC] PHP   3. SMSReceiver->__construct() C:\wamp\www\Rescuer\public\smsreceiver.php:190
+[14-Jun-2016 14:26:38 UTC] PHP   4. header() C:\wamp\www\Rescuer\public\lib\SMSReceiver.php:46
+[14-Jun-2016 14:27:36 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'dimuthu'@'localhost' (using password: YES) in C:\wamp\www\Rescuer\public\connection.php on line 2
+[14-Jun-2016 14:27:36 UTC] PHP Stack trace:
+[14-Jun-2016 14:27:36 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:27:36 UTC] PHP   2. include() C:\wamp\www\Rescuer\public\smsreceiver.php:15
+[14-Jun-2016 14:27:36 UTC] PHP   3. mysqli_connect() C:\wamp\www\Rescuer\public\connection.php:2
+[14-Jun-2016 14:27:36 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\wamp\www\Rescuer\public\smsreceiver.php on line 209
+[14-Jun-2016 14:27:36 UTC] PHP Stack trace:
+[14-Jun-2016 14:27:36 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:27:36 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 14:27:36 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:178
+[14-Jun-2016 14:27:36 UTC] PHP   4. mysqli_query() C:\wamp\www\Rescuer\public\smsreceiver.php:209
+[14-Jun-2016 14:27:36 UTC] PHP Notice:  Undefined offset: 0 in C:\wamp\www\Rescuer\public\smsreceiver.php on line 181
+[14-Jun-2016 14:27:36 UTC] PHP Stack trace:
+[14-Jun-2016 14:27:36 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:27:36 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 14:27:36 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\wamp\www\Rescuer\public\smsreceiver.php:181) in C:\wamp\www\Rescuer\public\lib\SMSReceiver.php on line 46
+[14-Jun-2016 14:27:36 UTC] PHP Stack trace:
+[14-Jun-2016 14:27:36 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:27:36 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 14:27:36 UTC] PHP   3. SMSReceiver->__construct() C:\wamp\www\Rescuer\public\smsreceiver.php:190
+[14-Jun-2016 14:27:36 UTC] PHP   4. header() C:\wamp\www\Rescuer\public\lib\SMSReceiver.php:46
+[14-Jun-2016 14:28:32 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'dimuthu'@'localhost' (using password: YES) in C:\wamp\www\Rescuer\public\connection.php on line 2
+[14-Jun-2016 14:28:32 UTC] PHP Stack trace:
+[14-Jun-2016 14:28:32 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:28:32 UTC] PHP   2. include() C:\wamp\www\Rescuer\public\smsreceiver.php:15
+[14-Jun-2016 14:28:32 UTC] PHP   3. mysqli_connect() C:\wamp\www\Rescuer\public\connection.php:2
+[14-Jun-2016 14:28:32 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in C:\wamp\www\Rescuer\public\smsreceiver.php on line 204
+[14-Jun-2016 14:28:32 UTC] PHP Stack trace:
+[14-Jun-2016 14:28:32 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:28:32 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:29
+[14-Jun-2016 14:28:32 UTC] PHP   3. getSubscribers() C:\wamp\www\Rescuer\public\smsreceiver.php:178
+[14-Jun-2016 14:28:32 UTC] PHP   4. mysqli_query() C:\wamp\www\Rescuer\public\smsreceiver.php:204
+[14-Jun-2016 14:45:49 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp\www\Rescuer\public\smsreceiver.php on line 191
+[14-Jun-2016 14:45:49 UTC] PHP Stack trace:
+[14-Jun-2016 14:45:49 UTC] PHP   1. {main}() C:\wamp\www\Rescuer\public\smsreceiver.php:0
+[14-Jun-2016 14:45:49 UTC] PHP   2. sendAnswer() C:\wamp\www\Rescuer\public\smsreceiver.php:29

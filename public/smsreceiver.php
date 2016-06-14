@@ -16,8 +16,8 @@ include './connection.php';
 
 
 define('SERVER_URL', 'https://api.dialog.lk/sms/send');
-define('APP_ID', 'APP_017887');
-define('APP_PASSWORD', '37dd0b8a4e06437e87467545243a2376');
+define('APP_ID', 'APP_024848');
+define('APP_PASSWORD', '70f203b738d0f3d744871a10f6612b56');
 
 $logger = new Logger();
 
@@ -25,8 +25,10 @@ $logger = new Logger();
 
 if (isset($_GET['title'])) {
     sendNotificationsByAuthority($con, $logger);
+} else if (isset($_GET['q_id'])) {
+    sendAnswer($con, $logger, $_GET['q_id'], $_GET['description']);
 } else {
-    sendAlertsByDevice($con, $logger);
+    sendAlertsByUsers($con, $logger);
 }
 
 //sendAlertsByDevice($con,$logger);
@@ -58,7 +60,7 @@ function sendNotificationsByAuthority($con, $logger) {
 //    }
 }
 
-function sendAlertsByDevice($con, $logger) {
+function sendAlertsByUsers($con, $logger) {
     try {
         // Creating a receiver and intialze it with the incomming data
         $receiver = new SMSReceiver(file_get_contents('php://input'));
@@ -72,17 +74,34 @@ function sendAlertsByDevice($con, $logger) {
 //
         $logger->WriteLog($receiver->getAddress());
 //        
-//
+//      
+        $tag_number = $receiver->getAddress();
         //$number_list = getSubscribers($con);
         //$response = $sender->broadcast('sssss', $number_list);
         //$message = 'rescuer device_id%1';
         //list($keyword, $opt) = explode(" ", $message);
 
-        $myfile = fopen("message.txt", "w") or die("Unable to open file!");
-        $txt = $message;
-        fwrite($myfile, $txt);
-        fclose($myfile);
+        $question = substr($message, 9);
 
+        $sql = "SELECT id FROM subscribers WHERE tag_number='$tag_number'";
+
+        $user_id = 0;
+
+        if ($result = mysqli_query($con, $sql)) {
+            // Fetch one and one row
+            while ($row = mysqli_fetch_row($result)) {
+                $user_id = $row[0];
+            }
+            // Free result set
+            mysqli_free_result($result);
+        }
+
+        $r = mysqli_query($con, "INSERT INTO questions(user_id, tag_number,type) VALUES ($user_id, '$question','SMS')");
+
+//        $myfile = fopen("message.txt", "w") or die("Unable to open file!");
+//        $txt = $question . ' ' . $tag_number . ' ' . $user_id;
+//        fwrite($myfile, $txt);
+//        fclose($myfile);
 //        if (strpos($opt, 'question') !== false) {
 //            $details = explode(":", $opt);
 //            $tag_number = $receiver->getAddress();
@@ -154,18 +173,42 @@ function sendAlertsByDevice($con, $logger) {
     }
 }
 
+function sendAnswer($con, $logger, $q_id, $description) {
+    try {
+        $number_list = getSubscribers($con);
+        echo $number_list[0];
+        //echo $number_list[0];
+        //$tag_number = '#AZ110yxGccw0krCCE8/xKs5vjwMc06wDsg2cCqXtNoet7PpJhGNeqAG4I/dTpeSbADSOA';
+        $reply = $_GET['description'];
+
+        // Creating a receiver and intialze it with the incomming data
+        $receiver = new SMSReceiver(file_get_contents('php://input'));
+
+        //Creating a sender
+        $sender = new SMSSender(SERVER_URL, APP_ID, APP_PASSWORD);
+
+        $response = $sender->broadcast($reply, $number_list);
+        
+        
+    } catch (SMSServiceException $e) {
+        $logger->WriteLog($e->getErrorCode() . ' ' . $e->getErrorMessage());
+    }
+}
+
 function getSubscribers($con) {
 
-    $query = "SELECT tag_number FROM subscribers";
+    $sql = "SELECT tag_number FROM subscribers";
 
     $result = array();
-    if ($query_run = mysql_query($query)) {
-        if (mysql_num_rows($query_run) != NULL) {
-            while ($row = mysql_fetch_assoc($query_run)) {
-                $result[] = $row['tag_number'];
-            }
+    if ($result_set = mysqli_query($con, $sql)) {
+        // Fetch one and one row
+        while ($row = mysqli_fetch_row($result_set)) {
+            $result[] = $row[0];
         }
+        // Free result set
+        mysqli_free_result($result_set);
     }
+
     return $result;
 }
 

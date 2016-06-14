@@ -3,17 +3,31 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/wamp/www/Rescuer/resources/views/index.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/resources/views/master.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/resources/views/login.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/resources/views/viewuser.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/resources/views/viewusers.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/public/subscription.php</file>
+            <file>file:/C:/wamp/www/Rescuer/resources/views/addwarnings.blade.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/viewrescuecenter.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/public/test.php</file>
+            <file>file:/C:/wamp/www/Rescuer/resources/views/test.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/resources/views/signup.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/resources/views/addrescuecenters.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/resources/views/viewnews.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/app/Http/Controllers/NewsController.php</file>
+            <file>file:/C:/wamp/www/Rescuer/resources/views/prewarnings.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/resources/views/addnews.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/resources/views/updatewarnings.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/public/smsreceiver.php</file>
+            <file>file:/C:/wamp/www/Rescuer/resources/views/forum.blade.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/updatereliefcenter.blade.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/viewreliefcenters.blade.php</file>
-            <file>file:/C:/wamp/www/Rescuer/app/Http/Controllers/NewsController.php</file>
-            <file>file:/C:/wamp/www/Rescuer/resources/views/viewuser.blade.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/updatenews.blade.php</file>
-            <file>file:/C:/wamp/www/Rescuer/resources/views/updatewarnings.blade.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/viewvictims.blade.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/viewwarnings.blade.php</file>
-            <file>file:/C:/wamp/www/Rescuer/resources/views/test.blade.php</file>
-            <file>file:/C:/wamp/www/Rescuer/resources/views/viewusers.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/resources/views/addreliefcenter.blade.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/viewrescuecenters.blade.php</file>
         </group>
     </open-files>
