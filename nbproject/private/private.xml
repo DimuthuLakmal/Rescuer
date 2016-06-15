@@ -5,24 +5,22 @@
         <group>
             <file>file:/C:/wamp/www/Rescuer/resources/views/index.blade.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/master.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/public/lib/SMSSender.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/addrescuecenters.blade.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/login.blade.php</file>
-            <file>file:/C:/wamp/www/Rescuer/resources/views/viewnews.blade.php</file>
-            <file>file:/C:/wamp/www/Rescuer/resources/views/viewuser.blade.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/prewarnings.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/tests/ExampleTest.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/addnews.blade.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/updatewarnings.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/public/smsreceiver.php</file>
+            <file>file:/C:/wamp/www/Rescuer/public/form.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/viewusers.blade.php</file>
-            <file>file:/C:/wamp/www/Rescuer/resources/views/viewrescuecenter.blade.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/updatereliefcenter.blade.php</file>
-            <file>file:/C:/wamp/www/Rescuer/resources/views/viewreliefcenters.blade.php</file>
+            <file>file:/C:/wamp/www/Rescuer/public/smsdeliveryreporthandler.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/updatenews.blade.php</file>
-            <file>file:/C:/wamp/www/Rescuer/resources/views/viewvictims.blade.php</file>
-            <file>file:/C:/wamp/www/Rescuer/resources/views/viewwarnings.blade.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/test.blade.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/addreliefcenter.blade.php</file>
             <file>file:/C:/wamp/www/Rescuer/resources/views/signup.blade.php</file>
-            <file>file:/C:/wamp/www/Rescuer/resources/views/viewrescuecenters.blade.php</file>
         </group>
     </open-files>
 </project-private>

@@ -18,18 +18,15 @@ include './connection.php';
 define('SERVER_URL', 'https://api.dialog.lk/sms/send');
 define('APP_ID', 'APP_024848');
 define('APP_PASSWORD', '70f203b738d0f3d744871a10f6612b56');
-
 $logger = new Logger();
 
-if (isset($_GET['q_id'])) {
-    sendAnswer($con, $logger, $_GET['q_id'], $_GET['description']);
-}
+sendAnswer($con, $logger);
 
-function sendAnswer($con, $logger, $q_id, $description) {
+function sendAnswer($con, $logger) {
     try {
         $number_list = array('AZ110yxGccw0krCCE8/xKs5vjwMc06wDsg2cCqXtNoet7PpLXLtO5bQcoL19krKaTE+Yh');
 
-        $reply = "rescuerdm".' '.$_GET['description'];
+        $reply = "rescuerdm" . ' ' . "fjsadklfjls";
 
         // Creating a receiver and intialze it with the incomming data
         $receiver = new SMSReceiver(file_get_contents('php://input'));
@@ -37,9 +34,7 @@ function sendAnswer($con, $logger, $q_id, $description) {
         //Creating a sender
         $sender = new SMSSender(SERVER_URL, APP_ID, APP_PASSWORD);
 
-        $response = $sender->broadcast($reply, $number_list);
-        
-        
+        $response = $sender->sms($reply, 'AZ110yxGccw0krCCE8/xKs5vjwMc06wDsg2cCqXtNoet7PpLXLtO5bQcoL19krKaTE+Yh');
     } catch (SMSServiceException $e) {
         $logger->WriteLog($e->getErrorCode() . ' ' . $e->getErrorMessage());
     }

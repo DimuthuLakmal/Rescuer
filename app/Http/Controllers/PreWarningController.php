@@ -51,7 +51,6 @@ class PreWarningController extends Controller {
             $url = "http://api.openweathermap.org/data/2.5/forecast?lat=" . $lat . "&lon=" . $lng . "&APPID=e6f6adc7d61561f5cf6145f3ba813ee0";
             $r = file_get_contents($url);
             $obj = json_decode($r);
-            //print($obj->list);
             $list = $obj->list;
 
             $total_rain_contains = 0;
@@ -100,7 +99,6 @@ class PreWarningController extends Controller {
             $url = "http://api.openweathermap.org/data/2.5/forecast?lat=" . $lat . "&lon=" . $lng . "&APPID=e6f6adc7d61561f5cf6145f3ba813ee0";
             $r = file_get_contents($url);
             $obj = json_decode($r);
-            //print($obj->list);
             $list = $obj->list;
 
             $total_rain_contains = 0;
